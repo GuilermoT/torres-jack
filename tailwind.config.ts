@@ -3,6 +3,10 @@ import type { Config } from 'tailwindcss'
 export default {
   theme: {
     extend: {
+      fontFamily: {
+        sans:  ['var(--font-hanken)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-newsreader)', 'Georgia', 'serif'],
+      },
       colors: {
         brand: {
           // Neutros cálidos
