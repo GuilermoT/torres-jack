@@ -19,8 +19,7 @@ const ESPECTACULOS = [
 const OPCIONES_RC = [
   { opcion: 'A', suma: '300.000 €' },
   { opcion: 'B', suma: '600.000 €' },
-  { opcion: 'D', suma: '1.200.000 €' },
-  { opcion: 'E', suma: '1.600.000 €' },
+  { opcion: 'D', suma: '1.000.000 €' },
 ]
 
 const CONTACT_METHODS = [
@@ -140,7 +139,7 @@ export default function HomePage() {
             {/* CTAs */}
             <div className="flex flex-wrap gap-[14px] mt-[36px]">
               <a
-                href="#presupuesto"
+                href="/presupuesto"
                 className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
               >
                 Calcula tu presupuesto
@@ -239,7 +238,7 @@ export default function HomePage() {
           {RAMOS.map(({ title, desc, phLabel, hue, big }) => (
             <a
               key={title}
-              href="#presupuesto"
+              href="/presupuesto"
               className={[
                 'group relative overflow-hidden rounded-[20px] flex flex-col justify-end',
                 big
@@ -309,8 +308,8 @@ export default function HomePage() {
         {/* Bloque superior: eyebrow + título | párrafo */}
         <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-[clamp(24px,4vw,60px)] items-end mb-[clamp(48px,6vw,80px)]">
           <div>
-            <span className="inline-flex items-center gap-[10px] font-sans text-[12px] font-semibold tracking-[0.16em] uppercase text-brand-accent mb-5">
-              <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
+            <span className="inline-flex items-center gap-[10px] font-sans text-[12px] font-semibold tracking-[0.16em] uppercase text-brand-warm mb-5">
+              <span className="inline-block w-[26px] h-[1.5px] bg-brand-warm shrink-0" aria-hidden />
               Seguros de artes escénicas
             </span>
             <h2 className="font-serif font-medium text-[clamp(32px,4.4vw,54px)] leading-[1.08] tracking-[-0.015em] text-brand-on-dark">
@@ -396,7 +395,7 @@ export default function HomePage() {
             </p>
 
             <a
-              href="#presupuesto"
+              href="/presupuesto"
               className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent border border-transparent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
             >
               Pide tu presupuesto sin compromiso

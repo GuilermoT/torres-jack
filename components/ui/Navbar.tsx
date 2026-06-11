@@ -5,11 +5,10 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
-  { label: 'Seguros',         href: '#ramos'       },
-  { label: 'Artes escénicas', href: '#escena'      },
-  { label: 'Presupuesto',     href: '#presupuesto' },
-  { label: 'Quiénes somos',   href: '#nosotros'    },
-  { label: 'Contacto',        href: '#contacto'    },
+  { label: 'Seguros',         href: '/#ramos'       },
+  { label: 'Artes escénicas', href: '/#escena'      },
+  { label: 'Quiénes somos',   href: '/#nosotros'    },
+  { label: 'Contacto',        href: '/#contacto'    },
 ] as const
 
 export function Navbar() {
@@ -63,7 +62,7 @@ export function Navbar() {
           href="/"
           className="flex items-center gap-3 shrink-0"
           aria-label="Torres Jack, inicio"
-          onClick={close}
+          onClick={() => { close(); window.scrollTo(0, 0) }}
         >
           <span
             aria-hidden
@@ -105,7 +104,7 @@ export function Navbar() {
 
           {/* CTA — oculto en xs, visible desde sm (640 px) */}
           <a
-            href="#presupuesto"
+            href="/presupuesto"
             className={cn(
               'hidden sm:inline-flex items-center gap-2.5',
               'py-[14px] px-[26px] rounded-full',
@@ -212,7 +211,7 @@ export function Navbar() {
         {/* CTA dentro del menú móvil */}
         <div className="mt-3 pt-3 border-t border-brand-line">
           <a
-            href="#presupuesto"
+            href="/presupuesto"
             onClick={close}
             tabIndex={isMenuOpen ? 0 : -1}
             className={cn(

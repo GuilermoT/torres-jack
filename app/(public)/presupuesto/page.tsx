@@ -14,7 +14,7 @@ interface FormData {
   fechaInicio: string; observaciones: string; polizaFilename: string
   // Artes escénicas
   razonSocial: string; nifCif: string; actividad: string; facturacion: string
-  maxEmpleados: string; opcion: string; iban: string
+  maxEmpleados: string; opcion: string
   // Hogar
   direccion: string; ciudadHogar: string; cpHogar: string; regimen: string
   capitalContinente: string; capitalContenido: string; capitalJoyas: string; alarma: string
@@ -55,7 +55,7 @@ const STEP2_LABELS: Record<Ramo, string> = {
 const INITIAL: FormData = {
   ramo: '',
   fechaInicio: '', observaciones: '', polizaFilename: '',
-  razonSocial: '', nifCif: '', actividad: '', facturacion: '', maxEmpleados: '', opcion: '', iban: '',
+  razonSocial: '', nifCif: '', actividad: '', facturacion: '', maxEmpleados: '', opcion: '',
   direccion: '', ciudadHogar: '', cpHogar: '', regimen: 'propietario',
   capitalContinente: '', capitalContenido: '', capitalJoyas: '', alarma: 'no',
   fechaNacConductor: '', fechaCarnet: '', marcaModelo: '', matricula: '',
@@ -603,7 +603,6 @@ export default function PresupuestoPage() {
                           <SummaryRow label="Facturación"     value={data.facturacion} />
                           <SummaryRow label="Máx. empleados"  value={data.maxEmpleados} />
                           <SummaryRow label="Opción"          value={data.opcion} />
-                          <SummaryRow label="IBAN"            value={data.iban} />
                         </>}
                         {data.ramo === 'hogar' && <>
                           <SummaryRow label="Dirección"         value={data.direccion} />
