@@ -115,3 +115,9 @@ const supabase = await createClient()
 - Función `cn()` de `lib/utils` para clases de Tailwind condicionales
 - Validaciones Zod compartidas entre cliente y servidor
 - Tipos en `types/index.ts` para entidades de base de datos
+
+
+## Diseño de Referencia
+- El diseño original está en `C:\Users\guill\Documents\torresjack-design\`
+- Úsalo como referencia visual para replicar estilos, colores, tipografías y layouts.
+- Al leer el diseño de referencia, consulta únicamente el archivo styles salvo que se indique explícitamente otro archivo.
