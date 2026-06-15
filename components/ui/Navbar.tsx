@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
   { label: 'Seguros',         href: '/#ramos'       },
-  { label: 'Artes escénicas', href: '/#escena'      },
+  { label: 'Artes escénicas', href: '/artes-escenicas' },
   { label: 'Quiénes somos',   href: '/#nosotros'    },
   { label: 'Contacto',        href: '/#contacto'    },
 ] as const
@@ -103,21 +103,23 @@ export function Navbar() {
         <div className="flex items-center gap-[14px] shrink-0">
 
           {/* CTA — oculto en xs, visible desde sm (640 px) */}
-          <a
-            href="/presupuesto"
-            className={cn(
-              'hidden sm:inline-flex items-center gap-2.5',
-              'py-[14px] px-[26px] rounded-full',
-              'font-semibold text-base text-white bg-brand-accent',
-              'border border-transparent whitespace-nowrap leading-none',
-              'shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)]',
-              'transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-              'hover:bg-brand-accent-deep hover:-translate-y-0.5',
-              'hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]'
-            )}
-          >
-            Pide presupuesto
-          </a>
+          <div className="group hidden sm:inline-block">
+            <a
+              href="/presupuesto"
+              className={cn(
+                'inline-flex items-center gap-2.5',
+                'py-[14px] px-[26px] rounded-full',
+                'font-semibold text-base text-white bg-brand-accent',
+                'border border-transparent whitespace-nowrap leading-none',
+                'shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)]',
+                'transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
+                'group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5',
+                'group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]'
+              )}
+            >
+              Pide presupuesto
+            </a>
+          </div>
 
           {/* Hamburger — solo móvil/tablet */}
           <button

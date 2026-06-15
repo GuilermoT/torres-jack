@@ -1,26 +1,7 @@
-import { ArrowRight, Check, Clock, GraduationCap, Mail, Phone, Shield, ShieldCheck } from 'lucide-react'
+﻿import Image from 'next/image'
+import { ArrowRight, Clock, GraduationCap, Mail, Phone, Shield, ShieldCheck } from 'lucide-react'
 
 const ASEGURADORAS = ["Lloyd's", 'Mapfre', 'Allianz', 'AXA', 'Generali', 'Zurich']
-
-const COBERTURAS_RC = [
-  { label: 'Responsabilidad civil de la actividad', desc: 'De la compañía, persona física o jurídica, en todo el territorio nacional.', nueva: false },
-  { label: 'RC patronal',                            desc: 'Accidentes laborales de las personas empleadas de la compañía.',              nueva: false },
-  { label: 'Daños a teatros y espacios',             desc: 'Incluidos los daños en operaciones de carga y descarga de material.',         nueva: false },
-  { label: 'Daños a espectadores y terceros',        desc: 'Cobertura por incendio y explosión en locales de ensayo, almacenes y oficinas.', nueva: false },
-  { label: 'Defensa jurídica y fianzas',             desc: 'Gastos de defensa y fianzas judiciales incluidos. Franquicia de 300 €.',  nueva: false },
-  { label: 'Actividad formativa',                    desc: 'Clases, cursos o talleres organizados por la compañía. Contratación optativa.', nueva: true },
-]
-
-const ESPECTACULOS = [
-  'Teatro', 'Danza', 'Circo', 'Títeres', 'Clown', 'Cabaret',
-  'Variedades', 'Teatro musical', 'Teatro físico', 'Compañías aficionadas', 'Asociaciones culturales',
-]
-
-const OPCIONES_RC = [
-  { opcion: 'A', suma: '300.000 €' },
-  { opcion: 'B', suma: '600.000 €' },
-  { opcion: 'D', suma: '1.000.000 €' },
-]
 
 const CONTACT_METHODS = [
   { Icon: Mail,  label: 'Email',      value: 'info@torresjack.com',           href: 'mailto:info@torresjack.com' },
@@ -73,36 +54,36 @@ const RAMOS = [
   {
     title: 'Artes escénicas',
     desc: 'Teatro, danza, circo y música en vivo. Cobertura integral para compañías y producciones.',
-    phLabel: 'FOTO · FUNCIÓN DE TEATRO EN DIRECTO',
-    hue: 256,
+    img: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80',
+    imgAlt: 'Compañía de teatro en escena',
     big: false,
   },
   {
     title: 'Flotas',
     desc: 'Vehículos de empresa: furgonetas, camiones, turismos y maquinaria industrial.',
-    phLabel: 'FOTO · FLOTA DE VEHÍCULOS',
-    hue: 215,
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    imgAlt: 'Flota de vehículos de empresa',
     big: false,
   },
   {
     title: 'Comunidades',
     desc: 'Zonas comunes, responsabilidad civil del edificio y gestión de siniestros sin complicaciones.',
-    phLabel: 'FOTO · EDIFICIO RESIDENCIAL A CORUÑA',
-    hue: 155,
+    img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+    imgAlt: 'Edificio residencial en A Coruña',
     big: false,
   },
   {
     title: 'Particulares',
     desc: 'Hogar, vida, salud y auto. Todo lo que necesitas para proteger tu día a día y el de tu familia.',
-    phLabel: 'FOTO · FAMILIA EN SU HOGAR',
-    hue: 42,
+    img: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
+    imgAlt: 'Hogar familiar bien asegurado',
     big: true,
   },
   {
     title: 'Empresas',
     desc: 'Coberturas a medida para pymes y autónomos: RC, D&O, ciberriesgos y más.',
-    phLabel: 'FOTO · OFICINA MODERNA A CORUÑA',
-    hue: 200,
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    imgAlt: 'Oficina moderna de empresa en A Coruña',
     big: true,
   },
 ]
@@ -138,19 +119,23 @@ export default function HomePage() {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-[14px] mt-[36px]">
-              <a
-                href="/presupuesto"
-                className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-              >
-                Calcula tu presupuesto
-                <ArrowRight className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
-              </a>
-              <a
-                href="#ramos"
-                className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-cream hover:border-brand-line hover:-translate-y-0.5"
-              >
-                Ver todos los seguros
-              </a>
+              <div className="group">
+                <a
+                  href="/presupuesto"
+                  className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
+                >
+                  Calcula tu presupuesto
+                  <ArrowRight className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
+                </a>
+              </div>
+              <div className="group">
+                <a
+                  href="#ramos"
+                  className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-cream group-hover:border-brand-line group-hover:-translate-y-0.5"
+                >
+                  Ver todos los seguros
+                </a>
+              </div>
             </div>
 
             {/* Trust stats */}
@@ -174,18 +159,16 @@ export default function HomePage() {
           {/* ── Media column ─────────────────────────────────── */}
           <div className="relative min-[1080px]:max-w-none max-w-[460px] mt-2 min-[1080px]:mt-0">
 
-            {/* Photo placeholder — replace with <Image> when photo is available */}
-            <div
-              className="aspect-[4/5] rounded-[30px] overflow-hidden shadow-[0_12px_30px_oklch(0.3_0.02_60/0.13),0_40px_80px_oklch(0.3_0.02_60/0.12)]"
-              style={{
-                background: [
-                  'repeating-linear-gradient(135deg, oklch(0.90 0.022 40) 0 2px, transparent 2px 13px)',
-                  'linear-gradient(150deg, oklch(0.93 0.030 40), oklch(0.86 0.040 54))',
-                ].join(', '),
-              }}
-              role="img"
-              aria-label="Foto del equipo · Torres Jack"
-            />
+            <div className="relative aspect-[4/5] rounded-[30px] overflow-hidden shadow-[0_12px_30px_oklch(0.3_0.02_60/0.13),0_40px_80px_oklch(0.3_0.02_60/0.12)]">
+              <Image
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80"
+                alt="Equipo de Torres Jack, correduría de seguros en A Coruña"
+                fill
+                priority
+                className="object-cover"
+                sizes="(min-width: 1080px) 40vw, min(460px, 100vw)"
+              />
+            </div>
 
             {/* Floating trust badge */}
             <div className="absolute bottom-[40px] -left-[26px] max-[520px]:left-[14px] max-[520px]:right-0 bg-brand-surface border border-brand-line rounded-[22px] p-[18px_22px] shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] flex items-center gap-[14px] max-w-[290px]">
@@ -235,29 +218,34 @@ export default function HomePage() {
         </h2>
 
         <div className="grid grid-cols-1 min-[768px]:grid-cols-6 gap-5 mt-14">
-          {RAMOS.map(({ title, desc, phLabel, hue, big }) => (
-            <a
+          {RAMOS.map(({ title, desc, img, imgAlt, big }) => (
+            <div
               key={title}
-              href="/presupuesto"
               className={[
-                'group relative overflow-hidden rounded-[20px] flex flex-col justify-end',
+                'group',
                 big
-                  ? 'min-[768px]:col-span-3 min-h-[300px] min-[768px]:min-h-[400px]'
-                  : 'min-[768px]:col-span-2 min-h-[270px]',
-                'shadow-[0_1px_2px_oklch(0.3_0.02_60/0.06),0_2px_8px_oklch(0.3_0.02_60/0.05)]',
-                'transition-[transform,box-shadow] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-                'hover:-translate-y-1 hover:shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)]',
+                  ? 'min-[768px]:col-span-3'
+                  : 'min-[768px]:col-span-2',
               ].join(' ')}
             >
-              {/* Placeholder background */}
-              <div
-                className="absolute inset-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                style={{
-                  background: [
-                    `repeating-linear-gradient(135deg, oklch(0.90 0.022 ${hue}) 0 2px, transparent 2px 13px)`,
-                    `linear-gradient(150deg, oklch(0.93 0.030 ${hue}), oklch(0.86 0.040 ${hue + 14}))`,
-                  ].join(', '),
-                }}
+              <a
+                href="/presupuesto"
+                className={[
+                  'relative overflow-hidden rounded-[20px] flex flex-col justify-end',
+                  big
+                    ? 'min-h-[300px] min-[768px]:min-h-[400px]'
+                    : 'min-h-[270px]',
+                  'shadow-[0_1px_2px_oklch(0.3_0.02_60/0.06),0_2px_8px_oklch(0.3_0.02_60/0.05)]',
+                  'transition-[transform,box-shadow] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
+                  'group-hover:-translate-y-1 group-hover:shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)]',
+                ].join(' ')}
+              >
+              <Image
+                src={img}
+                alt={imgAlt}
+                fill
+                className="object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
 
               {/* Dark gradient overlay */}
@@ -290,140 +278,27 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Photo caption label */}
-              <span className="absolute bottom-[12px] left-[14px] font-sans text-[11px] font-semibold tracking-[0.08em] uppercase leading-none text-[oklch(0.40_0.04_55)] bg-white/60 backdrop-blur-sm px-[9px] py-[4px] rounded-[6px] pointer-events-none">
-                {phLabel}
-              </span>
             </a>
+            </div>
           ))}
         </div>
 
       </div>
     </section>
-
-    {/* ── Artes Escénicas ──────────────────────────────────── */}
-    <section id="escena" className="bg-brand-dark py-[clamp(72px,9vw,132px)]">
-      <div className="w-full max-w-[1200px] mx-auto px-7">
-
-        {/* Bloque superior: eyebrow + título | párrafo */}
-        <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-[clamp(24px,4vw,60px)] items-end mb-[clamp(48px,6vw,80px)]">
-          <div>
-            <span className="inline-flex items-center gap-[10px] font-sans text-[12px] font-semibold tracking-[0.16em] uppercase text-brand-warm mb-5">
-              <span className="inline-block w-[26px] h-[1.5px] bg-brand-warm shrink-0" aria-hidden />
-              Seguros de artes escénicas
-            </span>
-            <h2 className="font-serif font-medium text-[clamp(32px,4.4vw,54px)] leading-[1.08] tracking-[-0.015em] text-brand-on-dark">
-              Seguros de artes escénicas, de quien conoce el oficio.
-            </h2>
-          </div>
-          <p className="text-[clamp(17px,1.4vw,19px)] leading-[1.65] text-brand-on-dark-soft min-[900px]:pb-[4px]">
-            Llevamos años asegurando a quienes hacen que la función no pare. Una póliza pensada para la realidad de las compañías: giras, montajes, ensayos, espacios prestados y público en la sala.
-          </p>
-        </div>
-
-        {/* Dos columnas */}
-        <div className="grid grid-cols-1 min-[960px]:grid-cols-2 gap-[clamp(40px,5vw,72px)] items-start">
-
-          {/* Izquierda: lista de coberturas + chips */}
-          <div>
-            <h3 className="font-serif font-medium text-[23px] leading-[1.12] tracking-[-0.01em] text-brand-on-dark mb-5">
-              Qué cubre tu RC de artes escénicas
-            </h3>
-            <ul className="flex flex-col gap-[18px]">
-              {COBERTURAS_RC.map(({ label, desc, nueva }) => (
-                <li key={label} className="flex items-start gap-[13px]">
-                  <span className="mt-[3px] w-[22px] h-[22px] rounded-full bg-brand-accent/20 grid place-items-center shrink-0">
-                    <Check className="w-[13px] h-[13px] text-brand-accent" strokeWidth={2.5} />
-                  </span>
-                  <div>
-                    <b className="block font-semibold text-[15px] leading-[1.35] text-brand-on-dark">
-                      {label}
-                      {nueva && (
-                        <span className="font-semibold text-brand-warm"> · nueva cobertura</span>
-                      )}
-                    </b>
-                    <span className="block text-[13.5px] leading-[1.55] text-brand-on-dark-soft mt-[3px]">{desc}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="font-serif font-medium text-[21px] leading-[1.12] tracking-[-0.01em] text-brand-on-dark mt-[34px] mb-[14px]">
-              Para todo tipo de espectáculo
-            </h3>
-            <div className="flex flex-wrap gap-[8px]">
-              {ESPECTACULOS.map((esp) => (
-                <span
-                  key={esp}
-                  className="text-[13.5px] font-medium text-brand-on-dark border border-brand-dark-line px-[13px] py-[6px] rounded-full"
-                >
-                  {esp}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Derecha: card de opciones */}
-          <div className="bg-brand-dark-2 rounded-[24px] p-[clamp(28px,3.5vw,44px)] border border-brand-dark-line">
-            <h3 className="font-serif font-medium text-[clamp(22px,2.2vw,27px)] leading-[1.12] tracking-[-0.01em] text-brand-on-dark mb-2">
-              Opciones de contratación
-            </h3>
-            <p className="text-[14px] leading-[1.6] text-brand-on-dark-soft mb-6">
-              Tarifa plana para compañías que facturan hasta 400.000&nbsp;€/año. Elige tu suma asegurada por siniestro.
-            </p>
-
-            <div className="flex flex-col divide-y divide-brand-dark-line">
-              {OPCIONES_RC.map(({ opcion, suma }) => (
-                <div key={opcion} className="flex items-center justify-between py-[15px] first:pt-0 last:pb-0">
-                  <div>
-                    <span className="block text-[14.5px] font-semibold text-brand-on-dark leading-none">
-                      Opción {opcion}
-                    </span>
-                    <span className="block text-[12px] text-brand-on-dark-soft mt-[4px]">
-                      Suma asegurada por siniestro
-                    </span>
-                  </div>
-                  <span className="font-newsreader text-[clamp(20px,2.1vw,26px)] font-semibold text-brand-warm tracking-[-0.02em] leading-none">
-                    {suma}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-[13px] leading-[1.6] text-brand-on-dark-soft mt-6 mb-6">
-              También aseguramos accidentes de actores y actrices, RC de profesores de artes escénicas y RC de actores y artistas a título individual.
-            </p>
-
-            <a
-              href="/presupuesto"
-              className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent border border-transparent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-            >
-              Pide tu presupuesto sin compromiso
-              <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     {/* ── Quiénes somos ──────────────────────────────────── */}
     <section id="nosotros" className="py-[clamp(72px,9vw,132px)]">
       <div className="w-full max-w-[1200px] mx-auto px-7">
         <div className="grid grid-cols-1 min-[860px]:grid-cols-[0.92fr_1.08fr] gap-[clamp(36px,5vw,72px)] items-center">
 
-          {/* Foto placeholder */}
-          <div
-            className="aspect-[5/6] rounded-[30px] shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] max-[860px]:max-w-[420px]"
-            style={{
-              background: [
-                'repeating-linear-gradient(135deg, oklch(0.90 0.022 60) 0 2px, transparent 2px 13px)',
-                'linear-gradient(150deg, oklch(0.93 0.030 60), oklch(0.86 0.040 74))',
-              ].join(', '),
-            }}
-            role="img"
-            aria-label="Foto · el equipo de Torres Jack"
-          />
+          <div className="relative aspect-[5/6] rounded-[30px] overflow-hidden shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] max-[860px]:max-w-[420px]">
+            <Image
+              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80"
+              alt="El equipo de Torres Jack, mediadores de seguros en A Coruña"
+              fill
+              className="object-cover"
+              sizes="(min-width: 860px) 40vw, min(420px, 100vw)"
+            />
+          </div>
 
           {/* Texto */}
           <div>
@@ -452,12 +327,14 @@ export default function HomePage() {
               ))}
             </div>
 
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2.5 py-[14px] px-[26px] rounded-full font-semibold text-[16px] leading-none bg-brand-ink text-brand-paper border border-transparent mt-[30px] transition-[transform,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-black hover:-translate-y-0.5"
-            >
-              Hablar con un mediador
-            </a>
+            <div className="group inline-block mt-[30px]">
+              <a
+                href="#contacto"
+                className="inline-flex items-center gap-2.5 py-[14px] px-[26px] rounded-full font-semibold text-[16px] leading-none bg-brand-ink text-brand-paper border border-transparent transition-[transform,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-black group-hover:-translate-y-0.5"
+              >
+                Hablar con un mediador
+              </a>
+            </div>
           </div>
 
         </div>
@@ -625,12 +502,14 @@ export default function HomePage() {
               </div>
 
               {/* Enviar */}
-              <button
-                type="submit"
-                className="flex items-center justify-center gap-2.5 w-full mt-5 py-[17px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-              >
-                Enviar mensaje
-              </button>
+              <div className="group mt-5">
+                <button
+                  type="submit"
+                  className="flex items-center justify-center gap-2.5 w-full py-[17px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
+                >
+                  Enviar mensaje
+                </button>
+              </div>
             </form>
           </div>
 

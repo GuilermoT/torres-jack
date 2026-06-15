@@ -31,25 +31,32 @@ const sizes: Record<Size, string> = {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'default', ...props }, ref) => (
+  ({ className, variant = 'primary', size = 'default', children, ...props }, ref) => (
     <button
       ref={ref}
       className={cn(
-        // base
-        'inline-flex items-center gap-2.5 rounded-full font-semibold',
+        'group inline-flex items-center rounded-full font-semibold',
         'border border-transparent whitespace-nowrap leading-none cursor-pointer',
-        '[&_svg]:w-[17px] [&_svg]:h-[17px] [&_svg]:shrink-0',
-        // transition — igual que el diseño: .25s cubic-bezier(0.22, 1, 0.36, 1)
-        'transition-[transform,background-color,box-shadow,color,border-color]',
+        'transition-[background-color,box-shadow,color,border-color]',
         'duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-        'hover:-translate-y-0.5',
         'disabled:opacity-50 disabled:pointer-events-none',
         variants[variant],
         sizes[size],
         className
       )}
       {...props}
-    />
+    >
+      <span
+        className={cn(
+          'inline-flex items-center gap-2.5',
+          '[&_svg]:w-[17px] [&_svg]:h-[17px] [&_svg]:shrink-0',
+          'transition-transform duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
+          'group-hover:-translate-y-0.5'
+        )}
+      >
+        {children}
+      </span>
+    </button>
   )
 )
 Button.displayName = 'Button'

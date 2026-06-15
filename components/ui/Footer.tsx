@@ -5,7 +5,6 @@ const SEGUROS = [
   { label: 'Hogar y auto',       href: '#ramos'       },
   { label: 'Comunidades',        href: '#ramos'       },
   { label: 'Flotas y empresas',  href: '#ramos'       },
-  { label: 'Vida y salud',       href: '#ramos'       },
 ] as const
 
 const CORREDURIA = [

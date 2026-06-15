@@ -464,26 +464,27 @@ export default function PresupuestoPage() {
                   </p>
                   <div className="grid grid-cols-1 min-[540px]:grid-cols-2 gap-3 mt-6">
                     {RAMOS_OPTIONS.map(({ id, Icon, label, desc }) => (
-                      <button
-                        key={id}
-                        type="button"
-                        onClick={() => pick('ramo', id)}
-                        className={[
-                          'border-[1.5px] rounded-[14px] p-[18px] flex gap-[14px] items-start text-left w-full',
-                          'transition-[border-color,background-color,transform] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-                          data.ramo === id
-                            ? 'border-brand-accent bg-brand-accent-tint'
-                            : 'border-brand-line bg-brand-surface hover:border-brand-line-strong hover:-translate-y-0.5',
-                        ].join(' ')}
-                      >
-                        <span className={`w-[38px] h-[38px] rounded-[10px] grid place-items-center shrink-0 transition-colors ${data.ramo === id ? 'bg-brand-accent text-white' : 'bg-brand-cream text-brand-ink'}`}>
-                          <Icon className="w-5 h-5" strokeWidth={2} />
-                        </span>
-                        <span>
-                          <b className="block font-semibold text-[16.5px] text-brand-ink leading-tight">{label}</b>
-                          <small className="block text-[13.5px] text-brand-muted mt-[3px]">{desc}</small>
-                        </span>
-                      </button>
+                      <div key={id} className="group">
+                        <button
+                          type="button"
+                          onClick={() => pick('ramo', id)}
+                          className={[
+                            'border-[1.5px] rounded-[14px] p-[18px] flex gap-[14px] items-start text-left w-full',
+                            'transition-[border-color,background-color,transform] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
+                            data.ramo === id
+                              ? 'border-brand-accent bg-brand-accent-tint'
+                              : 'border-brand-line bg-brand-surface hover:border-brand-line-strong group-hover:-translate-y-0.5',
+                          ].join(' ')}
+                        >
+                          <span className={`w-[38px] h-[38px] rounded-[10px] grid place-items-center shrink-0 transition-colors ${data.ramo === id ? 'bg-brand-accent text-white' : 'bg-brand-cream text-brand-ink'}`}>
+                            <Icon className="w-5 h-5" strokeWidth={2} />
+                          </span>
+                          <span>
+                            <b className="block font-semibold text-[16.5px] text-brand-ink leading-tight">{label}</b>
+                            <small className="block text-[13.5px] text-brand-muted mt-[3px]">{desc}</small>
+                          </span>
+                        </button>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -684,17 +685,21 @@ export default function PresupuestoPage() {
                 ) : <span />}
 
                 {step < 3 ? (
-                  <button type="button" onClick={() => setStep(s => s + 1)}
-                    className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]">
-                    Continuar
-                    <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
-                  </button>
+                  <div className="group">
+                    <button type="button" onClick={() => setStep(s => s + 1)}
+                      className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]">
+                      Continuar
+                      <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
+                    </button>
+                  </div>
                 ) : (
-                  <button type="button" onClick={handleSubmit} disabled={!data.consentimiento}
-                    className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:-translate-y-0.5 hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
-                    Enviar solicitud
-                    <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
-                  </button>
+                  <div className="group">
+                    <button type="button" onClick={handleSubmit} disabled={!data.consentimiento}
+                      className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] disabled:opacity-40 disabled:cursor-not-allowed disabled:!translate-y-0">
+                      Enviar solicitud
+                      <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
+                    </button>
+                  </div>
                 )}
               </div>
             )}
