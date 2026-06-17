@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const SEGUROS = [
@@ -65,12 +66,13 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
-              <span
-                aria-hidden
-                className="w-[42px] h-[42px] rounded-[11px] shrink-0 bg-brand-paper text-brand-dark-2 grid place-items-center font-serif text-[21px] font-semibold tracking-[-0.03em]"
-              >
-                TJ
-              </span>
+              <Image
+                src="/logo-white.svg"
+                alt=""
+                width={42}
+                height={42}
+                className="h-[42px] w-auto shrink-0"
+              />
               <span className="flex flex-col leading-[1.1]">
                 <b className="font-serif font-semibold text-[19px] tracking-[-0.01em] text-brand-on-dark">
                   Torres Jack
