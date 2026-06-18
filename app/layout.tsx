@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${hankenGrotesk.variable} ${newsreader.variable} h-full antialiased`}
+      className={`${hankenGrotesk.variable} ${newsreader.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans bg-brand-paper text-brand-ink">
         <Navbar />

@@ -1,25 +1,27 @@
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { label } from 'framer-motion/client'
 
 const SEGUROS = [
-  { label: 'Artes escénicas',    href: '#escena'      },
-  { label: 'Hogar y auto',       href: '#ramos'       },
-  { label: 'Comunidades',        href: '#ramos'       },
-  { label: 'Flotas y empresas',  href: '#ramos'       },
+  { label: 'Artes escénicas',    href: '/artes-escenicas'      },
+  { label: 'Particulares',       href: '/particulares'       },
+  { label: 'Comunidades',        href: '/comunidades'       },
+  { label: 'Flotas',             href: '/flotas'       },
+  { label: 'Empresas',           href: '/empresas'     },
 ] as const
 
 const CORREDURIA = [
-  { label: 'Quiénes somos',          href: '#nosotros'    },
-  { label: 'Pide presupuesto',        href: '#presupuesto' },
-  { label: 'Preguntas frecuentes',    href: '#faq'         },
-  { label: 'Asesoría jurídica',       href: '#contacto'    },
+  { label: 'Quiénes somos',          href: '/quienes-somos'    },
+  { label: 'Pide presupuesto',        href: '/presupuesto' },
+  { label: 'Preguntas frecuentes',    href: '/#faq'         },
+  { label: 'Asesoría jurídica',       href: '/quienes-somos#contacto'    },
   { label: 'Acceso del equipo',       href: '/panel'       },
 ] as const
 
 const CONTACTO = [
   { label: '981 12 14 08',          href: 'tel:+34981121408'          },
   { label: 'info@torresjack.com',   href: 'mailto:info@torresjack.com' },
-  { label: 'Asistencia 24 h',       href: '#contacto'                 },
+  { label: 'Asistencia 24 h',       href: 'https://www.unespa.es/directorio/'                 },
 ] as const
 
 function FooterCol({
