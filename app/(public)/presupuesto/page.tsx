@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ArrowLeft, ArrowRight, Briefcase, Building, Car, Check,
   Home, Paperclip, Theater, Truck,
@@ -8,7 +8,8 @@ import {
 
 type Ramo = 'artes' | 'hogar' | 'auto' | 'comunidad' | 'flota' | 'empresa'
 
-interface FormData {
+// Renombrado de FormData → PresupuestoState para evitar conflicto con el Web API FormData
+interface PresupuestoState {
   ramo: Ramo | ''
   // Step 2 — común
   fechaInicio: string; observaciones: string; polizaFilename: string
@@ -52,7 +53,7 @@ const STEP2_LABELS: Record<Ramo, string> = {
   empresa:   'Detalles de tu empresa',
 }
 
-const INITIAL: FormData = {
+const INITIAL: PresupuestoState = {
   ramo: '',
   fechaInicio: '', observaciones: '', polizaFilename: '',
   razonSocial: '', nifCif: '', actividad: '', facturacion: '', maxEmpleados: '', opcion: '',
@@ -67,6 +68,18 @@ const INITIAL: FormData = {
   consentimiento: false, consentimientoAnalisis: false,
 }
 
+const MAX_FILE_SIZE  = 3.5 * 1024 * 1024                          // 3.5 MB
+const ALLOWED_TYPES  = ['application/pdf', 'image/jpeg', 'image/png']
+const ALLOWED_EXT_RE = /\.(pdf|jpe?g|png)$/i
+
+function validateFile(file: File): string | null {
+  if (!ALLOWED_TYPES.includes(file.type) && !ALLOWED_EXT_RE.test(file.name))
+    return 'Solo se admiten archivos PDF, JPG o PNG.'
+  if (file.size > MAX_FILE_SIZE)
+    return 'El archivo supera 3,5 MB. Comprímelo o envíalo directamente a info@torresjack.com.'
+  return null
+}
+
 function SummaryRow({ label, value }: { label: string; value: string | boolean }) {
   const display = typeof value === 'boolean' ? (value ? 'Sí' : '') : value
   if (!display) return null
@@ -79,24 +92,63 @@ function SummaryRow({ label, value }: { label: string; value: string | boolean }
 }
 
 export default function PresupuestoPage() {
-  const [step, setStep]           = useState(0)
-  const [data, setData]           = useState<FormData>(INITIAL)
-  const [submitted, setSubmitted] = useState(false)
-  const fileRef = useRef<HTMLInputElement>(null)
+  const [step, setStep]               = useState(0)
+  const [data, setData]               = useState<PresupuestoState>(INITIAL)
+  const [submitted, setSubmitted]     = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [fileError, setFileError]     = useState('')
 
-  const set = (field: keyof FormData) =>
+  const fileRef         = useRef<HTMLInputElement>(null)
+  const selectedFileRef = useRef<File | null>(null)   // persiste el File entre cambios de paso
+  const honeypotRef     = useRef<HTMLInputElement>(null)
+
+  // Preselecciona ramo desde ?ramo= en la URL y salta al paso de detalles
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const ramo   = params.get('ramo') as Ramo | null
+    if (ramo && RAMOS_OPTIONS.some(r => r.id === ramo)) {
+      setData(prev => ({ ...prev, ramo }))
+      setStep(1)
+    }
+  }, [])
+
+  const set = (field: keyof PresupuestoState) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const el    = e.target
       const value = el instanceof HTMLInputElement && el.type === 'checkbox' ? el.checked : el.value
       setData(prev => ({ ...prev, [field]: value }))
     }
 
-  const pick = (field: keyof FormData, value: string) =>
+  const pick = (field: keyof PresupuestoState, value: string) =>
     setData(prev => ({ ...prev, [field]: value }))
 
-  const handleSubmit = () => {
-    console.log('Torres Jack — solicitud de presupuesto:', data)
-    setSubmitted(true)
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    const fd = new FormData()
+    fd.append('website', honeypotRef.current?.value ?? '')          // honeypot
+    for (const [key, value] of Object.entries(data)) {
+      fd.append(key, String(value))
+    }
+    if (selectedFileRef.current) {
+      fd.append('archivo', selectedFileRef.current)
+    }
+
+    try {
+      const res  = await fetch('/api/presupuesto', { method: 'POST', body: fd })
+      const json = await res.json() as { error?: string }
+      if (!res.ok) {
+        setSubmitError(json.error ?? 'Ha ocurrido un error. Inténtalo de nuevo más tarde.')
+      } else {
+        setSubmitted(true)
+      }
+    } catch {
+      setSubmitError('Error de red. Comprueba tu conexión e inténtalo de nuevo.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   // ── Shared CSS ──────────────────────────────────────────────────────────────
@@ -143,9 +195,28 @@ export default function PresupuestoPage() {
         <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png" className="sr-only"
           onChange={e => {
             const f = e.target.files?.[0]
-            setData(p => ({ ...p, polizaFilename: f?.name ?? '' }))
+            if (!f) {
+              selectedFileRef.current = null
+              setData(p => ({ ...p, polizaFilename: '' }))
+              setFileError('')
+              return
+            }
+            const err = validateFile(f)
+            if (err) {
+              selectedFileRef.current = null
+              setData(p => ({ ...p, polizaFilename: '' }))
+              setFileError(err)
+              if (fileRef.current) fileRef.current.value = ''
+            } else {
+              selectedFileRef.current = f
+              setData(p => ({ ...p, polizaFilename: f.name }))
+              setFileError('')
+            }
           }} />
       </label>
+      {fileError && (
+        <p className="mt-[6px] text-[13px] text-red-600 leading-[1.4]">{fileError}</p>
+      )}
     </div>
   )
 
@@ -200,7 +271,6 @@ export default function PresupuestoPage() {
           ))}
         </div>
       </div>
-      
       {obsField}{fileField}
     </>,
 
@@ -437,6 +507,11 @@ export default function PresupuestoPage() {
           {/* ── Form area ── */}
           <div className="p-[44px_clamp(28px,4vw,52px)] flex flex-col min-h-[540px]">
 
+            {/* Honeypot — off-screen, invisible para humanos */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+              <input ref={honeypotRef} type="text" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
+
             {!submitted && (
               <>
                 <div className="h-1 bg-brand-cream rounded-full overflow-hidden">
@@ -606,14 +681,14 @@ export default function PresupuestoPage() {
                           <SummaryRow label="Opción"          value={data.opcion} />
                         </>}
                         {data.ramo === 'hogar' && <>
-                          <SummaryRow label="Dirección"         value={data.direccion} />
-                          <SummaryRow label="Ciudad"            value={data.ciudadHogar} />
-                          <SummaryRow label="CP"                value={data.cpHogar} />
-                          <SummaryRow label="Régimen"           value={data.regimen} />
+                          <SummaryRow label="Dirección"          value={data.direccion} />
+                          <SummaryRow label="Ciudad"             value={data.ciudadHogar} />
+                          <SummaryRow label="CP"                 value={data.cpHogar} />
+                          <SummaryRow label="Régimen"            value={data.regimen} />
                           <SummaryRow label="Capital continente" value={data.capitalContinente ? `${data.capitalContinente} €` : ''} />
-                          <SummaryRow label="Capital contenido" value={data.capitalContenido ? `${data.capitalContenido} €` : ''} />
-                          <SummaryRow label="Capital joyas"     value={data.capitalJoyas ? `${data.capitalJoyas} €` : ''} />
-                          <SummaryRow label="Alarma"            value={data.alarma === 'si' ? 'Sí' : 'No'} />
+                          <SummaryRow label="Capital contenido"  value={data.capitalContenido ? `${data.capitalContenido} €` : ''} />
+                          <SummaryRow label="Capital joyas"      value={data.capitalJoyas ? `${data.capitalJoyas} €` : ''} />
+                          <SummaryRow label="Alarma"             value={data.alarma === 'si' ? 'Sí' : 'No'} />
                         </>}
                         {data.ramo === 'auto' && <>
                           <SummaryRow label="Marca / Modelo"  value={data.marcaModelo} />
@@ -675,32 +750,39 @@ export default function PresupuestoPage() {
 
             {/* ── Acciones ── */}
             {!submitted && (
-              <div className="flex justify-between items-center gap-[14px] mt-[30px] pt-6 border-t border-brand-line">
-                {step > 0 ? (
-                  <button type="button" onClick={() => setStep(s => s - 1)}
-                    className="inline-flex items-center gap-[7px] text-[15px] font-semibold text-brand-muted hover:text-brand-ink transition-colors px-2 py-2">
-                    <ArrowLeft className="w-4 h-4" strokeWidth={2.2} />
-                    Atrás
-                  </button>
-                ) : <span />}
-
-                {step < 3 ? (
-                  <div className="group">
-                    <button type="button" onClick={() => setStep(s => s + 1)}
-                      className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]">
-                      Continuar
-                      <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
-                    </button>
-                  </div>
-                ) : (
-                  <div className="group">
-                    <button type="button" onClick={handleSubmit} disabled={!data.consentimiento}
-                      className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] disabled:opacity-40 disabled:cursor-not-allowed disabled:!translate-y-0">
-                      Enviar solicitud
-                      <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
-                    </button>
-                  </div>
+              <div className="flex flex-col gap-3 mt-[30px] pt-6 border-t border-brand-line">
+                {submitError && (
+                  <p className="text-[13.5px] text-red-600 text-right leading-[1.4]">{submitError}</p>
                 )}
+                <div className="flex justify-between items-center gap-[14px]">
+                  {step > 0 ? (
+                    <button type="button" onClick={() => setStep(s => s - 1)}
+                      className="inline-flex items-center gap-[7px] text-[15px] font-semibold text-brand-muted hover:text-brand-ink transition-colors px-2 py-2">
+                      <ArrowLeft className="w-4 h-4" strokeWidth={2.2} />
+                      Atrás
+                    </button>
+                  ) : <span />}
+
+                  {step < 3 ? (
+                    <div className="group">
+                      <button type="button" onClick={() => setStep(s => s + 1)}
+                        className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]">
+                        Continuar
+                        <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      disabled={!data.consentimiento || isSubmitting}
+                      className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] disabled:opacity-40 disabled:cursor-not-allowed disabled:!translate-y-0 disabled:!shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)]"
+                    >
+                      {isSubmitting ? 'Enviando…' : 'Enviar solicitud'}
+                      {!isSubmitting && <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />}
+                    </button>
+                  )}
+                </div>
               </div>
             )}
 

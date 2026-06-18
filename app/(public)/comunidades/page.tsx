@@ -124,7 +124,7 @@ export default function ComunidadesPage() {
 
               <div className="group mt-10">
                 <a
-                  href="/presupuesto"
+                  href="/presupuesto?ramo=comunidad"
                   className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent border border-transparent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
                 >
                   Pide tu presupuesto de comunidad sin compromiso

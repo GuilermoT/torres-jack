@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Clock, GraduationCap, Mail, Phone, Shield } from 'lucide-react'
+import ContactoForm from '@/components/forms/ContactoForm'
 
 export const metadata: Metadata = {
   title: 'Quiénes somos | Torres Jack Correduría de Seguros',
@@ -146,86 +147,9 @@ export default function QuienesSomosPage() {
             <p className="text-[15px] leading-[1.6] text-brand-ink-soft mt-2">
               Cuéntanos qué necesitas y te respondemos en menos de 24&nbsp;h laborables.
             </p>
-
-            <form className="mt-[22px]" noValidate>
-              {/* Nombre */}
-              <div>
-                <label className="block text-[14px] font-semibold text-brand-ink mb-[7px]">
-                  Nombre <span className="text-brand-accent">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="nombre"
-                  placeholder="Tu nombre"
-                  autoComplete="name"
-                  className="w-full py-[13px] px-[15px] text-[16px] border-[1.5px] border-brand-line rounded-lg bg-brand-surface text-brand-ink placeholder:text-brand-muted focus:outline-none focus:border-brand-accent focus:shadow-[0_0_0_4px_oklch(0.948_0.030_250)] transition-[border-color,box-shadow] duration-200"
-                />
-              </div>
-
-              {/* Email + Teléfono */}
-              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-[14px] mt-[18px]">
-                <div>
-                  <label className="block text-[14px] font-semibold text-brand-ink mb-[7px]">
-                    Email <span className="text-brand-accent">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="tucorreo@email.com"
-                    autoComplete="email"
-                    className="w-full py-[13px] px-[15px] text-[16px] border-[1.5px] border-brand-line rounded-lg bg-brand-surface text-brand-ink placeholder:text-brand-muted focus:outline-none focus:border-brand-accent focus:shadow-[0_0_0_4px_oklch(0.948_0.030_250)] transition-[border-color,box-shadow] duration-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[14px] font-semibold text-brand-ink mb-[7px]">
-                    Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    name="telefono"
-                    placeholder="600 00 00 00"
-                    autoComplete="tel"
-                    className="w-full py-[13px] px-[15px] text-[16px] border-[1.5px] border-brand-line rounded-lg bg-brand-surface text-brand-ink placeholder:text-brand-muted focus:outline-none focus:border-brand-accent focus:shadow-[0_0_0_4px_oklch(0.948_0.030_250)] transition-[border-color,box-shadow] duration-200"
-                  />
-                </div>
-              </div>
-
-              {/* Mensaje */}
-              <div className="mt-[18px]">
-                <label className="block text-[14px] font-semibold text-brand-ink mb-[7px]">
-                  ¿En qué te ayudamos? <span className="text-brand-accent">*</span>
-                </label>
-                <textarea
-                  name="mensaje"
-                  placeholder="Cuéntanos brevemente tu consulta…"
-                  rows={4}
-                  className="w-full py-[13px] px-[15px] text-[16px] border-[1.5px] border-brand-line rounded-lg bg-brand-surface text-brand-ink placeholder:text-brand-muted resize-y min-h-[96px] focus:outline-none focus:border-brand-accent focus:shadow-[0_0_0_4px_oklch(0.948_0.030_250)] transition-[border-color,box-shadow] duration-200"
-                />
-              </div>
-
-              {/* Consentimiento */}
-              <div className="flex gap-[11px] items-start mt-4 text-[13px] text-brand-muted">
-                <input
-                  type="checkbox"
-                  id="cconsent"
-                  name="consent"
-                  className="mt-[3px] w-4 h-4 shrink-0 accent-[oklch(0.50_0.135_256)]"
-                />
-                <label htmlFor="cconsent" className="font-medium leading-[1.5]">
-                  Acepto el aviso legal y la política de privacidad.
-                </label>
-              </div>
-
-              {/* Enviar */}
-              <div className="group mt-5">
-                <button
-                  type="submit"
-                  className="flex items-center justify-center gap-2.5 w-full py-[17px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-                >
-                  Enviar mensaje
-                </button>
-              </div>
-            </form>
+            <div className="mt-[22px]">
+              <ContactoForm />
+            </div>
           </div>
 
         </div>

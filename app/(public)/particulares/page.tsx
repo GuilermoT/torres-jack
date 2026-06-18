@@ -118,14 +118,25 @@ export default function ParticularsPage() {
                 ))}
               </ul>
 
-              <div className="group mt-10">
-                <a
-                  href="/presupuesto"
-                  className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent border border-transparent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-                >
-                  Pide tu presupuesto particular sin compromiso
-                  <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
-                </a>
+              <div className="mt-10 flex flex-col gap-3">
+                <div className="group">
+                  <a
+                    href="/presupuesto?ramo=hogar"
+                    className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent border border-transparent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
+                  >
+                    Presupuesto de hogar
+                    <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
+                  </a>
+                </div>
+                <div className="group">
+                  <a
+                    href="/presupuesto?ramo=auto"
+                    className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[16px] leading-none text-brand-ink bg-transparent border border-brand-line-strong w-full transition-[transform,background-color,border-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-cream group-hover:border-brand-line group-hover:-translate-y-0.5"
+                  >
+                    Presupuesto de auto y moto
+                    <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
+                  </a>
+                </div>
               </div>
             </div>
 
