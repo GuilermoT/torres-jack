@@ -636,7 +636,7 @@ export default function PresupuestoPage() {
                       <span className="text-[13.5px] text-brand-ink-soft leading-[1.55]">
                         <b className="text-brand-ink font-semibold">RGPD.</b>{' '}
                         He leído y acepto el{' '}
-                        <a href="#" className="text-brand-accent font-semibold hover:underline">aviso legal y política de privacidad</a>.
+                        <a href="/aviso-legal" className="text-brand-accent font-semibold hover:underline">aviso legal y política de privacidad</a>.
                         {' '}Acepto que Torres Jack me contacte para gestionar mi solicitud.{' '}
                         <span className="text-brand-accent">*</span>
                       </span>

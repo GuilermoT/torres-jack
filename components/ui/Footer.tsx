@@ -103,10 +103,16 @@ export function Footer() {
 
           <div className="flex gap-[18px] items-center flex-wrap">
             <a
-              href="#"
+              href="/aviso-legal"
               className="hover:text-brand-on-dark transition-colors duration-200"
             >
               Aviso legal y política de privacidad
+            </a>
+            <a
+              href="/cookies"
+              className="hover:text-brand-on-dark transition-colors duration-200"
+            >
+              Política de cookies
             </a>
 
             {/* Facebook */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk, Newsreader } from "next/font/google";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
+import { CookieBanner } from "@/components/ui/CookieBanner";
 import "./globals.css";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -70,6 +71,7 @@ export default function RootLayout({
         <Navbar />
         <main className="grow-0 pt-[76px]">{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

@@ -113,7 +113,11 @@ export default function ContactoForm() {
           onChange={() => consentError && setConsentError(false)}
         />
         <label htmlFor="cconsent" className={`text-[13px] font-medium leading-[1.5] ${consentError ? 'text-red-600' : 'text-brand-muted'}`}>
-          Acepto el aviso legal y la política de privacidad.{' '}
+          Acepto el{' '}
+          <a href="/aviso-legal" className="underline hover:text-brand-accent transition-colors duration-200">
+            aviso legal y la política de privacidad
+          </a>
+          .{' '}
           <span className="text-brand-accent">*</span>
         </label>
       </div>
