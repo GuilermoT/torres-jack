@@ -108,8 +108,7 @@ function buildHtml(data: PresupuestoData, archivoNombre: string | null): string 
     row('Teléfono',         data.telefono)    +
     row('Fecha nacimiento', data.fechaNacimiento) +
     row('Ciudad',           data.ciudadPersona)  +
-    row('Código postal',    data.cpPersona)   +
-    row('Análisis objetivo', data.consentimientoAnalisis ? 'Sí' : 'No')
+    row('Código postal',    data.cpPersona)
 
   return `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
 <title>Solicitud de presupuesto</title></head>
