@@ -114,16 +114,19 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Menú principal">
+        <nav className="hidden lg:flex items-center gap-7" aria-label="Menú principal">
           {NAV_LINKS.map(({ label, href }) => (
             <a
               key={href}
               href={href}
               className={cn(
-                'py-[9px] px-[15px] rounded-full',
+                'relative py-[9px]',
                 'text-[15.5px] font-medium text-brand-ink-soft whitespace-nowrap',
-                'transition-[color,background-color] duration-200',
-                'hover:text-brand-ink hover:bg-brand-cream'
+                'transition-colors duration-200 hover:text-brand-ink',
+                "after:content-[''] after:absolute after:bottom-0 after:left-0",
+                'after:h-[1.5px] after:w-0 after:bg-brand-accent',
+                'after:[transition:width_600ms_ease-out]',
+                'hover:after:w-full',
               )}
             >
               {label}
@@ -224,10 +227,9 @@ export function Navbar() {
             onClick={close}
             tabIndex={isMenuOpen ? 0 : -1}
             className={cn(
-              'px-4 py-[13px] rounded-[11px]',
+              'px-4 py-[13px]',
               'text-[17px] font-medium text-brand-ink-soft',
-              'transition-[color,background-color] duration-200',
-              'hover:text-brand-ink hover:bg-brand-cream'
+              'transition-colors duration-200 hover:text-brand-ink',
             )}
           >
             {label}

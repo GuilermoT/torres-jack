@@ -36,22 +36,23 @@ const CONTACT_METHODS = [
 export default function QuienesSomosPage() {
   return (
     <>
-    <section id="nosotros" className="py-[clamp(72px,9vw,132px)]">
-      <div className="w-full max-w-[1200px] mx-auto px-7">
-        <div className="grid grid-cols-1 min-[860px]:grid-cols-[0.92fr_1.08fr] gap-[clamp(36px,5vw,72px)] items-center">
+    <section id="nosotros" className="w-full overflow-hidden">
+      <div className="flex flex-col min-[860px]:flex-row">
 
-          <FadeInOnScroll delay={0} className="relative aspect-[5/6] rounded-[30px] overflow-hidden shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] max-[860px]:max-w-[420px]">
-            <Image
-              src="https://images.unsplash.com/photo-1623177623378-f6aa5fd70ba7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="El equipo de Torres Jack, mediadores de seguros en A Coruña"
-              fill
-              className="object-cover"
-              sizes="(min-width: 860px) 40vw, min(420px, 100vw)"
-            />
-          </FadeInOnScroll>
+        {/* Foto full-bleed — columna izquierda */}
+        <FadeInOnScroll delay={0} className="relative w-full min-[860px]:w-1/2 h-[280px] min-[860px]:h-auto min-[860px]:min-h-[600px]">
+          <Image
+            src="https://images.unsplash.com/photo-1623177623378-f6aa5fd70ba7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="El equipo de Torres Jack, mediadores de seguros en A Coruña"
+            fill
+            className="object-cover"
+            sizes="(min-width: 860px) 50vw, 100vw"
+          />
+        </FadeInOnScroll>
 
-          {/* Texto */}
-          <FadeInOnScroll delay={0.1}>
+        {/* Texto — columna derecha */}
+        <FadeInOnScroll delay={0.1} className="w-full min-[860px]:w-1/2 bg-brand-paper-alt">
+          <div className="h-full flex flex-col justify-center px-[clamp(32px,6vw,80px)] py-[clamp(56px,8vw,96px)]">
             <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent">
               <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
               Quiénes somos
@@ -85,9 +86,9 @@ export default function QuienesSomosPage() {
                 Hablar con un mediador
               </a>
             </div>
-          </FadeInOnScroll>
+          </div>
+        </FadeInOnScroll>
 
-        </div>
       </div>
     </section>
 
