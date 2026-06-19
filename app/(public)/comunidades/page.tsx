@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ArrowDown, ArrowRight } from 'lucide-react'
+import FadeInOnScroll from '@/components/ui/FadeInOnScroll'
 
 export const metadata: Metadata = {
   title: 'Seguro de Comunidades | Torres Jack',
@@ -34,42 +35,42 @@ export default function ComunidadesPage() {
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <section className="pt-[clamp(40px,5vw,64px)] pb-[clamp(48px,6vw,80px)] border-b border-brand-line">
         <div className="w-full max-w-[1200px] mx-auto px-7">
-          <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent mb-5">
-            <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
-            Seguros de comunidades
-          </span>
+          <FadeInOnScroll>
+            <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent mb-5">
+              <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
+              Seguros de comunidades
+            </span>
 
-          <h1 className="font-serif font-medium text-[clamp(38px,5.2vw,70px)] leading-[1.04] tracking-[-0.025em] text-brand-ink max-w-[22ch]">
-            El seguro de tu comunidad, sin sorpresas.
-          </h1>
+            <h1 className="font-serif font-medium text-[clamp(38px,5.2vw,70px)] leading-[1.04] tracking-[-0.025em] text-brand-ink max-w-[22ch]">
+              El seguro de tu comunidad, sin sorpresas.
+            </h1>
 
-          <p className="text-[clamp(17px,1.45vw,20px)] leading-[1.65] text-brand-ink-soft mt-[22px] max-w-[54ch]">
-            Zonas comunes, fachada, instalaciones y responsabilidad civil del edificio. Ayudamos a presidentes y administradores de fincas a tener todo en orden, con alguien que responde cuando hay un problema real.
-          </p>
+            <p className="text-[clamp(17px,1.45vw,20px)] leading-[1.65] text-brand-ink-soft mt-[22px] max-w-[54ch]">
+              Zonas comunes, fachada, instalaciones y responsabilidad civil del edificio. Ayudamos a presidentes y administradores de fincas a tener todo en orden, con alguien que responde cuando hay un problema real.
+            </p>
 
-          <div className="group inline-block mt-[32px]">
-            <a
-              href="#mas-info"
-              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-cream group-hover:border-brand-line group-hover:-translate-y-0.5"
-            >
-              Saber más
-              <ArrowDown className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
-            </a>
-          </div>
+            <div className="group inline-block mt-[32px]">
+              <a
+                href="#mas-info"
+                className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-cream group-hover:border-brand-line group-hover:-translate-y-0.5"
+              >
+                Saber más
+                <ArrowDown className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
+              </a>
+            </div>
+          </FadeInOnScroll>
         </div>
       </section>
 
       {/* ── Foto ──────────────────────────────────────────────────────── */}
-      <div className="w-full max-w-[1200px] mx-auto px-7 pt-[clamp(40px,5vw,64px)]">
-        <div className="relative h-[clamp(320px,28vw,380px)] rounded-[20px] overflow-hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80"
-            alt="Edificio de comunidad de propietarios"
-            fill
-            className="object-cover object-center"
-            sizes="(min-width: 1200px) 1136px, calc(100vw - 56px)"
-          />
-        </div>
+      <div className="relative w-full h-[clamp(320px,28vw,380px)] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80"
+          alt="Edificio de comunidad de propietarios"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       </div>
 
       {/* ── Contenido principal ───────────────────────────────────────── */}
@@ -79,7 +80,7 @@ export default function ComunidadesPage() {
           <div className="grid grid-cols-1 min-[960px]:grid-cols-2 gap-[clamp(40px,5vw,64px)] min-[960px]:gap-0 items-start">
 
             {/* Izquierda: cómo trabajamos + chips */}
-            <div className="min-[960px]:pr-[clamp(40px,5vw,64px)]">
+            <FadeInOnScroll delay={0} className="min-[960px]:pr-[clamp(40px,5vw,64px)]">
               <h2 className="font-serif font-medium text-[23px] leading-[1.12] tracking-[-0.01em] text-brand-ink mb-5">
                 Cómo trabajamos tu comunidad
               </h2>
@@ -105,10 +106,10 @@ export default function ComunidadesPage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </FadeInOnScroll>
 
             {/* Derecha: por qué Torres Jack + CTA */}
-            <div className="min-[960px]:pl-[clamp(40px,5vw,64px)] min-[960px]:border-l min-[960px]:border-brand-line">
+            <FadeInOnScroll delay={0.15} className="min-[960px]:pl-[clamp(40px,5vw,64px)] min-[960px]:border-l min-[960px]:border-brand-line">
               <h3 className="font-serif font-medium text-[clamp(22px,2.2vw,27px)] leading-[1.12] tracking-[-0.01em] text-brand-ink mb-5">
                 Por qué contratar tu comunidad con Torres Jack
               </h3>
@@ -131,7 +132,7 @@ export default function ComunidadesPage() {
                   <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
                 </a>
               </div>
-            </div>
+            </FadeInOnScroll>
 
           </div>
         </div>

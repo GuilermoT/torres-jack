@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Clock, GraduationCap, Mail, Phone, Shield } from 'lucide-react'
 import ContactoForm from '@/components/forms/ContactoForm'
+import FadeInOnScroll from '@/components/ui/FadeInOnScroll'
 
 export const metadata: Metadata = {
   title: 'Quiénes Somos | Torres Jack',
@@ -39,18 +40,18 @@ export default function QuienesSomosPage() {
       <div className="w-full max-w-[1200px] mx-auto px-7">
         <div className="grid grid-cols-1 min-[860px]:grid-cols-[0.92fr_1.08fr] gap-[clamp(36px,5vw,72px)] items-center">
 
-          <div className="relative aspect-[5/6] rounded-[30px] overflow-hidden shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] max-[860px]:max-w-[420px]">
+          <FadeInOnScroll delay={0} className="relative aspect-[5/6] rounded-[30px] overflow-hidden shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] max-[860px]:max-w-[420px]">
             <Image
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80"
+              src="https://images.unsplash.com/photo-1623177623378-f6aa5fd70ba7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="El equipo de Torres Jack, mediadores de seguros en A Coruña"
               fill
               className="object-cover"
               sizes="(min-width: 860px) 40vw, min(420px, 100vw)"
             />
-          </div>
+          </FadeInOnScroll>
 
           {/* Texto */}
-          <div>
+          <FadeInOnScroll delay={0.1}>
             <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent">
               <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
               Quiénes somos
@@ -84,7 +85,7 @@ export default function QuienesSomosPage() {
                 Hablar con un mediador
               </a>
             </div>
-          </div>
+          </FadeInOnScroll>
 
         </div>
       </div>
@@ -96,7 +97,7 @@ export default function QuienesSomosPage() {
         <div className="grid grid-cols-1 min-[860px]:grid-cols-2 gap-[clamp(36px,5vw,72px)] items-center">
 
           {/* Izquierda: encabezado + métodos de contacto */}
-          <div>
+          <FadeInOnScroll delay={0}>
             <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-[oklch(0.78_0.10_45)]">
               <span className="inline-block w-[26px] h-[1.5px] bg-[oklch(0.78_0.10_45)] shrink-0" aria-hidden />
               Hablemos
@@ -137,10 +138,10 @@ export default function QuienesSomosPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </FadeInOnScroll>
 
           {/* Derecha: tarjeta con formulario */}
-          <div className="bg-brand-surface rounded-[30px] p-[clamp(28px,4vw,40px)] shadow-[0_12px_30px_oklch(0.3_0.02_60/0.13),0_40px_80px_oklch(0.3_0.02_60/0.12)] text-brand-ink">
+          <FadeInOnScroll delay={0.1} className="bg-brand-surface rounded-[30px] p-[clamp(28px,4vw,40px)] shadow-[0_12px_30px_oklch(0.3_0.02_60/0.13),0_40px_80px_oklch(0.3_0.02_60/0.12)] text-brand-ink">
             <h3 className="font-serif font-medium text-[25px] leading-[1.08] tracking-[-0.015em] text-brand-ink">
               Escríbenos
             </h3>
@@ -150,7 +151,7 @@ export default function QuienesSomosPage() {
             <div className="mt-[22px]">
               <ContactoForm />
             </div>
-          </div>
+          </FadeInOnScroll>
 
         </div>
       </div>

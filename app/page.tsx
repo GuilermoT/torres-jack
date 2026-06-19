@@ -1,6 +1,8 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
+import HeroSection from '@/components/ui/HeroSection'
+import FadeInOnScroll from '@/components/ui/FadeInOnScroll'
 
 export const metadata: Metadata = {
   title: 'Torres Jack | Correduría de Seguros en A Coruña',
@@ -74,86 +76,7 @@ export default function HomePage() {
   return (
     <>
     {/* ── Hero ─────────────────────────────────────────────── */}
-    <section className="relative w-full min-h-[85vh] flex items-start overflow-hidden">
-
-      {/* Background image */}
-      <Image
-        src="https://images.unsplash.com/photo-1620004071518-52531ff9162c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Equipo de Torres Jack, correduría de seguros en A Coruña"
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
-
-      {/* Navy overlay */}
-      <div className="absolute inset-0 bg-brand-dark-2/55" />
-
-      {/* Left gradient for text legibility */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 70%)' }} />
-
-      {/* Content */}
-      <div className="relative w-full max-w-[860px] px-[clamp(28px,6vw,80px)] pt-[clamp(80px,12vw,152px)] pb-[clamp(64px,8vw,112px)]">
-
-        {/* Eyebrow */}
-        <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent mb-6">
-          <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
-          Correduría independiente
-        </span>
-
-        {/* Headline */}
-        <h1 className="font-serif font-medium text-[clamp(42px,6.2vw,84px)] leading-[1.04] tracking-[-0.028em] text-white">
-          El seguro, explicado por{' '}
-          <em className="not-italic italic text-brand-accent">personas</em>{' '}
-          que entienden tu mundo.
-        </h1>
-
-        {/* Lead */}
-        <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.6] text-white/75 mt-[26px] max-w-[50ch]">
-          Somos una correduría con más de 40 años de experiencia, con profesionales con la máxima preparación y tecnología
-          que nunca te dejarán solo ante un problema en tu vida privada o en tu empresa.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-[14px] mt-[36px]">
-          <div className="group">
-            <a
-              href="/presupuesto"
-              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-            >
-              Calcula tu presupuesto
-              <ArrowRight className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
-            </a>
-          </div>
-          <div className="group">
-            <a
-              href="#ramos"
-              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-transparent border border-white/40 whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-white/10 group-hover:border-white/60 group-hover:-translate-y-0.5"
-            >
-              Ver todos los seguros
-            </a>
-          </div>
-        </div>
-
-        {/* Trust stats */}
-        <div className="flex flex-wrap gap-x-[30px] gap-y-[22px] mt-[40px]">
-          {([
-            { value: '+40',       label: 'años asegurando' },
-            { value: 'Titulados', label: 'y colegiados'    },
-          ] as const).map(({ value, label }) => (
-            <div key={label} className="flex flex-col gap-[2px]">
-              <b className="font-serif text-[30px] font-semibold tracking-[-0.02em] text-white">
-                {value}
-              </b>
-              <span className="text-[13.5px] font-medium text-white/60">
-                {label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </section>
+    <HeroSection />
 
     {/* ── Aseguradoras ──────────────────────────────────── */}
     <div className="border-y border-brand-line bg-brand-paper-alt">
@@ -178,24 +101,22 @@ export default function HomePage() {
     <section id="ramos" className="py-[clamp(72px,9vw,132px)]">
       <div className="w-full max-w-[1200px] mx-auto px-7">
 
-        <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent">
-          <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
-          Lo que aseguramos
-        </span>
-        <h2 className="font-serif font-medium text-[clamp(32px,4.4vw,56px)] leading-[1.08] tracking-[-0.015em] text-brand-ink mt-[18px]">
-          Cobertura para cada etapa de tu vida y tu empresa.
-        </h2>
+        <FadeInOnScroll>
+          <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent">
+            <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
+            Lo que aseguramos
+          </span>
+          <h2 className="font-serif font-medium text-[clamp(32px,4.4vw,56px)] leading-[1.08] tracking-[-0.015em] text-brand-ink mt-[18px]">
+            Cobertura para cada etapa de tu vida y tu empresa.
+          </h2>
+        </FadeInOnScroll>
 
         <div className="grid grid-cols-1 min-[768px]:grid-cols-6 gap-5 mt-14">
-          {RAMOS.map(({ title, desc, img, imgAlt, big }) => (
-            <div
+          {RAMOS.map(({ title, desc, img, imgAlt, big }, index) => (
+            <FadeInOnScroll
               key={title}
-              className={[
-                'group',
-                big
-                  ? 'min-[768px]:col-span-3'
-                  : 'min-[768px]:col-span-2',
-              ].join(' ')}
+              className={['group', big ? 'min-[768px]:col-span-3' : 'min-[768px]:col-span-2'].join(' ')}
+              delay={index * 0.1}
             >
               <a
                 href="/presupuesto"
@@ -248,45 +169,48 @@ export default function HomePage() {
               </div>
 
             </a>
-            </div>
+            </FadeInOnScroll>
           ))}
         </div>
 
       </div>
     </section>
+
     {/* ── FAQ ──────────────────────────────────── */}
-    <section id="faq" className="bg-brand-cream py-[clamp(72px,9vw,132px)]">
-      <div className="w-full max-w-[1200px] mx-auto px-7">
+    <FadeInOnScroll>
+      <section id="faq" className="bg-brand-cream py-[clamp(72px,9vw,132px)]">
+        <div className="w-full max-w-[1200px] mx-auto px-7">
 
-        <div className="text-center">
-          <span className="inline-flex justify-center items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent">
-            <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
-            Dudas frecuentes
-          </span>
-          <h2 className="font-serif font-medium text-[clamp(32px,4.4vw,56px)] leading-[1.08] tracking-[-0.015em] text-brand-ink mt-[18px]">
-            Lo que más nos preguntan.
-          </h2>
+          <div className="text-center">
+            <span className="inline-flex justify-center items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent">
+              <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
+              Dudas frecuentes
+            </span>
+            <h2 className="font-serif font-medium text-[clamp(32px,4.4vw,56px)] leading-[1.08] tracking-[-0.015em] text-brand-ink mt-[18px]">
+              Lo que más nos preguntan.
+            </h2>
+          </div>
+
+          <div className="max-w-[820px] mx-auto mt-[50px] border-t border-brand-line">
+            {FAQ_ITEMS.map(({ q, a }) => (
+              <details key={q} className="group border-b border-brand-line">
+                <summary className="flex justify-between items-center gap-5 py-6 px-1 cursor-pointer [&::-webkit-details-marker]:hidden font-serif text-[clamp(19px,2vw,23px)] font-medium leading-[1.08] tracking-[-0.01em] text-brand-ink">
+                  {q}
+                  <span className="relative shrink-0 w-[30px] h-[30px] rounded-full border-[1.5px] border-brand-line-strong grid place-items-center transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:bg-brand-accent group-open:border-brand-accent">
+                    <span className="absolute w-[12px] h-[1.8px] rounded-sm bg-brand-ink transition-colors duration-300 group-open:bg-white" aria-hidden />
+                    <span className="absolute w-[1.8px] h-[12px] rounded-sm bg-brand-ink transition-[transform,background-color] duration-300 origin-center group-open:scale-y-0 group-open:bg-white" aria-hidden />
+                  </span>
+                </summary>
+                <div className="px-1 pb-[26px]">
+                  <p className="text-[16.5px] leading-[1.6] text-brand-ink-soft max-w-[70ch]">{a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+
         </div>
-
-        <div className="max-w-[820px] mx-auto mt-[50px] border-t border-brand-line">
-          {FAQ_ITEMS.map(({ q, a }) => (
-            <details key={q} className="group border-b border-brand-line">
-              <summary className="flex justify-between items-center gap-5 py-6 px-1 cursor-pointer [&::-webkit-details-marker]:hidden font-serif text-[clamp(19px,2vw,23px)] font-medium leading-[1.08] tracking-[-0.01em] text-brand-ink">
-                {q}
-                <span className="relative shrink-0 w-[30px] h-[30px] rounded-full border-[1.5px] border-brand-line-strong grid place-items-center transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:bg-brand-accent group-open:border-brand-accent">
-                  <span className="absolute w-[12px] h-[1.8px] rounded-sm bg-brand-ink transition-colors duration-300 group-open:bg-white" aria-hidden />
-                  <span className="absolute w-[1.8px] h-[12px] rounded-sm bg-brand-ink transition-[transform,background-color] duration-300 origin-center group-open:scale-y-0 group-open:bg-white" aria-hidden />
-                </span>
-              </summary>
-              <div className="px-1 pb-[26px]">
-                <p className="text-[16.5px] leading-[1.6] text-brand-ink-soft max-w-[70ch]">{a}</p>
-              </div>
-            </details>
-          ))}
-        </div>
-
-      </div>
-    </section>
+      </section>
+    </FadeInOnScroll>
     </>
   )
 }
