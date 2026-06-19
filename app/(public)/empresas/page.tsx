@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Seguros para empresas y pymes en Galicia | Torres Jack Correduría de Seguros',
-  description: 'Seguros para pymes y autónomos en Galicia: responsabilidad civil, ciberriesgos y coberturas a medida. Pide presupuesto sin compromiso.',
+  title: 'Seguros para Empresas | Torres Jack',
+  description: 'Seguros para pymes y empresas en Galicia. Coberturas adaptadas a tu actividad.',
 }
 
 const COMO_TRABAJAMOS = [

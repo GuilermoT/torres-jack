@@ -1,4 +1,10 @@
+import type { Metadata } from 'next'
 import { ArrowRight, Check } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Seguro de Artes Escénicas | Torres Jack',
+  description: 'Seguro de responsabilidad civil para compañías de teatro, danza, circo y artes escénicas en Galicia.',
+}
 
 const COBERTURAS_RC = [
   { label: 'Responsabilidad civil de la actividad', desc: 'De la compañía, persona física o jurídica, en todo el territorio nacional.', nueva: false },

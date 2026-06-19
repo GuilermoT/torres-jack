@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Aviso legal | Torres Jack',
+  title: 'Aviso Legal | Torres Jack',
   description:
     'Aviso legal, política de privacidad y análisis objetivo de Torres Jack Correduría de Seguros, S.L.',
 }

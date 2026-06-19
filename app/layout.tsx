@@ -68,8 +68,31 @@ export default function RootLayout({
       className={`${hankenGrotesk.variable} ${newsreader.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans bg-brand-paper text-brand-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': ['LocalBusiness', 'InsuranceAgency'],
+              name: 'Torres Jack Correduría de Seguros',
+              url: 'https://www.torresjack.com',
+              telephone: '+34981121408',
+              email: 'direccion@torresjack.com',
+              description: 'Correduría de seguros independiente en A Coruña con más de 40 años de experiencia',
+              areaServed: 'España',
+              priceRange: '€€',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Federico Tapia 13 1ºD',
+                postalCode: '15005',
+                addressLocality: 'A Coruña',
+                addressCountry: 'ES',
+              },
+            }),
+          }}
+        />
         <Navbar />
-        <main className="grow-0 pt-[76px]">{children}</main>
+        <main className="grow-0 pt-[90px]">{children}</main>
         <Footer />
         <CookieBanner />
       </body>

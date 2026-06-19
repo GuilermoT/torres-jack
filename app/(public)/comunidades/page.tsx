@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Seguros de comunidades en Galicia | Torres Jack Correduría de Seguros',
-  description: 'Seguros para comunidades de propietarios en Galicia. Gestión de siniestros, zonas comunes y responsabilidad civil del edificio. Pide presupuesto sin compromiso.',
+  title: 'Seguro de Comunidades | Torres Jack',
+  description: 'Seguros para comunidades de propietarios en A Coruña y Galicia.',
 }
 
 const COMO_TRABAJAMOS = [

@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Seguros de flotas en Galicia | Torres Jack Correduría de Seguros',
-  description: 'Seguros de flotas para empresas en Galicia. Furgonetas, camiones y maquinaria industrial con gestión centralizada. Pide presupuesto sin compromiso.',
+  title: 'Seguro de Flotas | Torres Jack',
+  description: 'Seguros integrales para flotas de vehículos. Coberturas adaptadas a tu empresa.',
 }
 
 const COMO_TRABAJAMOS = [

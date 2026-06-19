@@ -78,7 +78,7 @@ export function Navbar() {
         'fixed top-0 left-0 right-0 w-full z-[60]',
         'backdrop-blur-[14px] backdrop-saturate-[160%]',
         'shadow-[0_8px_24px_-2px_rgba(0,0,0,0.12)]',
-        'transition-[background-color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+        'transition-[background-color,translate] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
         isScrolled
           ? 'bg-[oklch(0.987_0.006_75/0.94)]'
           : 'bg-[oklch(0.987_0.006_75/0.82)]',
@@ -86,7 +86,7 @@ export function Navbar() {
       )}
     >
       {/* ── Nav bar ─────────────────────────────────────────── */}
-      <div className="w-full px-7 flex items-center justify-between h-[76px] gap-6">
+      <div className="w-full px-7 flex items-center justify-between h-[90px] gap-6">
 
         {/* Brand */}
         <Link
@@ -206,7 +206,7 @@ export function Navbar() {
         aria-hidden={!isMenuOpen}
         className={cn(
           'lg:hidden',
-          'absolute top-[76px] left-0 right-0',
+          'absolute top-[90px] left-0 right-0',
           'bg-brand-surface border-b border-brand-line',
           'px-[18px] pt-[14px] pb-[22px]',
           'flex flex-col gap-0.5',

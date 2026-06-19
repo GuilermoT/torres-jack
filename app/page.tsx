@@ -1,5 +1,11 @@
-﻿import Image from 'next/image'
+﻿import type { Metadata } from 'next'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Torres Jack | Correduría de Seguros en A Coruña',
+  description: 'Correduría de seguros independiente en A Coruña. Artes escénicas, flotas, comunidades, particulares y empresas.',
+}
 
 const ASEGURADORAS = ["Lloyd's", 'Mapfre', 'Allianz', 'AXA', 'Generali', 'Zurich']
 

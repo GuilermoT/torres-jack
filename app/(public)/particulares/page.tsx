@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Seguros para particulares en Galicia | Torres Jack Correduría de Seguros',
-  description: 'Seguros de hogar, vida, salud y auto en Galicia. Mediadores titulados que comparan entre varias aseguradoras. Pide presupuesto sin compromiso.',
+  title: 'Seguros para Particulares | Torres Jack',
+  description: 'Seguros de hogar y auto para particulares. Asesoramiento personalizado en A Coruña.',
 }
 
 const COMO_TRABAJAMOS = [

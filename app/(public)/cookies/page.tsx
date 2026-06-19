@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Política de cookies | Torres Jack',
+  title: 'Política de Cookies | Torres Jack',
   description: 'Política de cookies de Torres Jack Correduría de Seguros, S.L.',
 }
 

@@ -4,8 +4,8 @@ import { Clock, GraduationCap, Mail, Phone, Shield } from 'lucide-react'
 import ContactoForm from '@/components/forms/ContactoForm'
 
 export const metadata: Metadata = {
-  title: 'Quiénes somos | Torres Jack Correduría de Seguros',
-  description: 'Conoce a Torres Jack, correduría de seguros independiente en A Coruña con más de 40 años de experiencia. Mediadores titulados y colegiados.',
+  title: 'Quiénes Somos | Torres Jack',
+  description: 'Conoce a Torres Jack, correduría de seguros independiente con más de 40 años de experiencia en A Coruña.',
 }
 
 const ABOUT_PTS = [
