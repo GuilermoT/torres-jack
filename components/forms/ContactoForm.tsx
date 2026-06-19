@@ -113,16 +113,16 @@ export default function ContactoForm() {
           onChange={() => consentError && setConsentError(false)}
         />
         <label htmlFor="cconsent" className={`text-[13px] font-medium leading-[1.5] ${consentError ? 'text-red-600' : 'text-brand-muted'}`}>
-          Acepto el{' '}
+          He leído y acepto el{' '}
           <a href="/aviso-legal" className="underline hover:text-brand-accent transition-colors duration-200">
-            aviso legal y la política de privacidad
+            aviso legal, política de privacidad y análisis objetivo
           </a>
-          .{' '}
+          . Acepto que Torres Jack me contacte para gestionar mi solicitud y analice mis necesidades para ofrecerme productos adecuados a mi perfil.{' '}
           <span className="text-brand-accent">*</span>
         </label>
       </div>
       {consentError && (
-        <p className="mt-1 text-[12.5px] text-red-600">Debes aceptar la política de privacidad para continuar.</p>
+        <p className="mt-1 text-[12.5px] text-red-600">Debes aceptar el aviso legal y política de privacidad para continuar.</p>
       )}
 
       {/* Error de envío */}

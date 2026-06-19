@@ -30,7 +30,7 @@ interface PresupuestoState {
   // Step 3
   nombre: string; nifPersona: string; email: string; telefono: string
   fechaNacimiento: string; ciudadPersona: string; cpPersona: string
-  consentimiento: boolean; consentimientoAnalisis: boolean
+  consentimiento: boolean
 }
 
 const RAMOS_OPTIONS = [
@@ -65,7 +65,7 @@ const INITIAL: PresupuestoState = {
   nombreEmpresa: '', actividadEmpresa: '', mensajeLibre: '',
   nombre: '', nifPersona: '', email: '', telefono: '',
   fechaNacimiento: '', ciudadPersona: '', cpPersona: '',
-  consentimiento: false, consentimientoAnalisis: false,
+  consentimiento: false,
 }
 
 const MAX_FILE_SIZE  = 3.5 * 1024 * 1024                          // 3.5 MB
@@ -629,24 +629,15 @@ export default function PresupuestoPage() {
                     </div>
                   </div>
 
-                  <div className="mt-6 flex flex-col gap-4">
+                  <div className="mt-6">
                     <label className="flex gap-3 items-start cursor-pointer">
                       <input type="checkbox" checked={data.consentimiento} onChange={set('consentimiento')}
                         className="mt-[3px] w-4 h-4 shrink-0 accent-[oklch(0.50_0.135_256)]" />
                       <span className="text-[13.5px] text-brand-ink-soft leading-[1.55]">
-                        <b className="text-brand-ink font-semibold">RGPD.</b>{' '}
                         He leído y acepto el{' '}
-                        <a href="/aviso-legal" className="text-brand-accent font-semibold hover:underline">aviso legal y política de privacidad</a>.
-                        {' '}Acepto que Torres Jack me contacte para gestionar mi solicitud.{' '}
+                        <a href="/aviso-legal" className="text-brand-accent font-semibold hover:underline">aviso legal, política de privacidad y análisis objetivo</a>.
+                        {' '}Acepto que Torres Jack me contacte para gestionar mi solicitud y analice mis necesidades para ofrecerme productos adecuados a mi perfil.{' '}
                         <span className="text-brand-accent">*</span>
-                      </span>
-                    </label>
-                    <label className="flex gap-3 items-start cursor-pointer">
-                      <input type="checkbox" checked={data.consentimientoAnalisis} onChange={set('consentimientoAnalisis')}
-                        className="mt-[3px] w-4 h-4 shrink-0 accent-[oklch(0.50_0.135_256)]" />
-                      <span className="text-[13.5px] text-brand-ink-soft leading-[1.55]">
-                        <b className="text-brand-ink font-semibold">Análisis objetivo.</b>{' '}
-                        Acepto que Torres Jack analice mis necesidades para ofrecerme productos adecuados a mi perfil.
                       </span>
                     </label>
                   </div>

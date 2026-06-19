@@ -27,15 +27,14 @@ const GARANTIAS_AUTO = [
 // Nota: el archivo adjunto se valida por separado en el handler (tamaño, tipo).
 
 const paso3 = z.object({
-  nombre:               z.string().min(1, 'Campo obligatorio'),
-  nifPersona:           z.string().min(1, 'Campo obligatorio'),
-  email:                z.string().email('Email inválido'),
-  telefono:             z.string().min(1, 'Campo obligatorio'),
-  fechaNacimiento:      z.string().optional(),
-  ciudadPersona:        z.string().min(1, 'Campo obligatorio'),
-  cpPersona:            z.string().min(1, 'Campo obligatorio'),
-  consentimiento:       z.literal(true),
-  consentimientoAnalisis: z.boolean().optional(),
+  nombre:          z.string().min(1, 'Campo obligatorio'),
+  nifPersona:      z.string().min(1, 'Campo obligatorio'),
+  email:           z.string().email('Email inválido'),
+  telefono:        z.string().min(1, 'Campo obligatorio'),
+  fechaNacimiento: z.string().optional(),
+  ciudadPersona:   z.string().min(1, 'Campo obligatorio'),
+  cpPersona:       z.string().min(1, 'Campo obligatorio'),
+  consentimiento:  z.literal(true),
 })
 
 // ─── Paso 2: específico por ramo ─────────────────────────────────────────────
