@@ -86,7 +86,7 @@ export function Navbar() {
       )}
     >
       {/* ── Nav bar ─────────────────────────────────────────── */}
-      <div className="w-full max-w-[1200px] mx-auto px-7 flex items-center justify-between h-[76px] gap-6">
+      <div className="w-full px-7 flex items-center justify-between h-[76px] gap-6">
 
         {/* Brand */}
         <Link
@@ -100,14 +100,14 @@ export function Navbar() {
             alt=""
             width={40}
             height={40}
-            className="h-12 w-auto"
+            className="h-14 w-auto"
             priority
           />
           <span className="flex flex-col leading-[1.1]">
-            <span className="font-serif font-semibold text-[19px] tracking-[-0.01em] text-brand-ink">
+            <span className="font-serif font-semibold text-[22px] tracking-[-0.01em] text-brand-ink">
               Torres Jack
             </span>
-            <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-brand-muted">
+            <span className="font-sans text-[13px] tracking-[0.08em] uppercase text-brand-muted">
               Correduría de Seguros
             </span>
           </span>

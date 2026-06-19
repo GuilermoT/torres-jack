@@ -1,5 +1,5 @@
 ﻿import Image from 'next/image'
-import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const ASEGURADORAS = ["Lloyd's", 'Mapfre', 'Allianz', 'AXA', 'Generali', 'Zurich']
 
@@ -18,7 +18,7 @@ const FAQ_ITEMS = [
   },
   {
     q: '¿La póliza de artes escénicas sirve para cualquier compañía?',
-    a: 'Sí. Es una tarifa plana para compañías que facturan hasta 400.000 €/año. Si facturas más, también puedes contratarla: al final del año declaras tu facturación y la aseguradora ajusta el recibo de forma proporcional. Pueden contratarla sociedades limitadas, anónimas, profesionales, grupos aficionados, asociaciones culturales y cooperativas.',
+    a: 'Sí. Es una tarifa plana para compañías que facturan hasta 400.000 €/año. Si facturas más, también puedes contratarla: al final del año declaras tu facturación y la aseguradora ajusta el recibo de forma proporcional. Pueden contratarla sociedades limitadas, anónimas, profesionales, grupos aficionados, asociaciones culturales y cooperativas.',
   },
   {
     q: '¿Por qué contratar con una correduría y no directamente?',
@@ -67,98 +67,85 @@ const RAMOS = [
 export default function HomePage() {
   return (
     <>
-    <section className="relative pt-[clamp(40px,6vw,76px)] pb-[clamp(48px,6vw,80px)]">
-      <div className="w-full max-w-[1200px] mx-auto px-7">
-        <div className="grid grid-cols-1 items-center gap-[clamp(28px,4vw,60px)] min-[1080px]:grid-cols-[1.04fr_0.96fr]">
+    {/* ── Hero ─────────────────────────────────────────────── */}
+    <section className="relative w-full min-h-[85vh] flex items-start overflow-hidden">
 
-          {/* ── Text column ──────────────────────────────────── */}
-          <div>
+      {/* Background image */}
+      <Image
+        src="https://images.unsplash.com/photo-1620004071518-52531ff9162c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Equipo de Torres Jack, correduría de seguros en A Coruña"
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+      />
 
-            {/* Eyebrow */}
-            <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent mb-6">
-              <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
-              Correduría independiente · A Coruña
-            </span>
+      {/* Navy overlay */}
+      <div className="absolute inset-0 bg-brand-dark-2/55" />
 
-            {/* Headline */}
-            <h1 className="font-serif font-medium text-[clamp(42px,6.2vw,84px)] leading-[1.04] tracking-[-0.028em] text-brand-ink">
-              El seguro, explicado por{' '}
-              <em className="not-italic italic text-brand-accent">personas</em>{' '}
-              que entienden tu mundo.
-            </h1>
+      {/* Left gradient for text legibility */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 70%)' }} />
 
-            {/* Lead */}
-            <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.6] text-brand-ink-soft mt-[26px] max-w-[50ch]">
-              Somos una correduría con más de 40 años de experiencia, con profesionales con la máxima preparación y tecnología 
-              que nunca te dejarán solo ante un problema en tu vida privada o en tu empresa.
-            </p>
+      {/* Content */}
+      <div className="relative w-full max-w-[860px] px-[clamp(28px,6vw,80px)] pt-[clamp(80px,12vw,152px)] pb-[clamp(64px,8vw,112px)]">
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-[14px] mt-[36px]">
-              <div className="group">
-                <a
-                  href="/presupuesto"
-                  className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
-                >
-                  Calcula tu presupuesto
-                  <ArrowRight className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
-                </a>
-              </div>
-              <div className="group">
-                <a
-                  href="#ramos"
-                  className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-cream group-hover:border-brand-line group-hover:-translate-y-0.5"
-                >
-                  Ver todos los seguros
-                </a>
-              </div>
-            </div>
+        {/* Eyebrow */}
+        <span className="inline-flex items-center gap-[10px] font-sans text-[13px] font-semibold tracking-[0.16em] uppercase text-brand-accent mb-6">
+          <span className="inline-block w-[26px] h-[1.5px] bg-brand-accent shrink-0" aria-hidden />
+          Correduría independiente
+        </span>
 
-            {/* Trust stats */}
-            <div className="flex flex-wrap gap-x-[30px] gap-y-[22px] mt-[40px]">
-              {([
-                { value: '+40',       label: 'años asegurando'    },
-                { value: 'Titulados', label: 'y colegiados'       },
-              ] as const).map(({ value, label }) => (
-                <div key={label} className="flex flex-col gap-[2px]">
-                  <b className="font-serif text-[30px] font-semibold tracking-[-0.02em] text-brand-ink">
-                    {value}
-                  </b>
-                  <span className="text-[13.5px] font-medium text-brand-muted">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div>
+        {/* Headline */}
+        <h1 className="font-serif font-medium text-[clamp(42px,6.2vw,84px)] leading-[1.04] tracking-[-0.028em] text-white">
+          El seguro, explicado por{' '}
+          <em className="not-italic italic text-brand-accent">personas</em>{' '}
+          que entienden tu mundo.
+        </h1>
+
+        {/* Lead */}
+        <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.6] text-white/75 mt-[26px] max-w-[50ch]">
+          Somos una correduría con más de 40 años de experiencia, con profesionales con la máxima preparación y tecnología
+          que nunca te dejarán solo ante un problema en tu vida privada o en tu empresa.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap gap-[14px] mt-[36px]">
+          <div className="group">
+            <a
+              href="/presupuesto"
+              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
+            >
+              Calcula tu presupuesto
+              <ArrowRight className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
+            </a>
           </div>
-
-          {/* ── Media column ─────────────────────────────────── */}
-          <div className="relative min-[1080px]:max-w-none max-w-[460px] mt-2 min-[1080px]:mt-0">
-
-            <div className="relative aspect-[4/5] rounded-[30px] overflow-hidden shadow-[0_12px_30px_oklch(0.3_0.02_60/0.13),0_40px_80px_oklch(0.3_0.02_60/0.12)]">
-              <Image
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80"
-                alt="Equipo de Torres Jack, correduría de seguros en A Coruña"
-                fill
-                priority
-                className="object-cover"
-                sizes="(min-width: 1080px) 40vw, min(460px, 100vw)"
-              />
-            </div>
-
-            {/* Floating trust badge */}
-            <div className="absolute bottom-[40px] -left-[26px] max-[520px]:left-[14px] max-[520px]:right-0 bg-brand-surface border border-brand-line rounded-[22px] p-[18px_22px] shadow-[0_4px_14px_oklch(0.3_0.02_60/0.08),0_18px_40px_oklch(0.3_0.02_60/0.07)] flex items-center gap-[14px] max-w-[290px]">
-              <span className="w-[46px] h-[46px] rounded-full bg-brand-accent-tint text-brand-accent-deep grid place-items-center shrink-0">
-                <ShieldCheck className="w-[24px] h-[24px]" strokeWidth={2} />
-              </span>
-              <p className="text-[14.5px] leading-[1.35] text-brand-ink">
-                <b className="font-semibold">Mediadores titulados y colegiados.</b>{' '}
-                Trabajamos para ti, no para la aseguradora.
-              </p>
-            </div>
-
+          <div className="group">
+            <a
+              href="#ramos"
+              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-transparent border border-white/40 whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-white/10 group-hover:border-white/60 group-hover:-translate-y-0.5"
+            >
+              Ver todos los seguros
+            </a>
           </div>
         </div>
+
+        {/* Trust stats */}
+        <div className="flex flex-wrap gap-x-[30px] gap-y-[22px] mt-[40px]">
+          {([
+            { value: '+40',       label: 'años asegurando' },
+            { value: 'Titulados', label: 'y colegiados'    },
+          ] as const).map(({ value, label }) => (
+            <div key={label} className="flex flex-col gap-[2px]">
+              <b className="font-serif text-[30px] font-semibold tracking-[-0.02em] text-white">
+                {value}
+              </b>
+              <span className="text-[13.5px] font-medium text-white/60">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
 
