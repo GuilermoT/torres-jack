@@ -9,7 +9,7 @@ export default function HeroSection() {
 
       {/* Background image — no animation */}
       <Image
-        src="https://images.unsplash.com/photo-1620004071518-52531ff9162c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src="https://images.unsplash.com/photo-1513709254963-89c060576182?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Equipo de Torres Jack, correduría de seguros en A Coruña"
         fill
         priority

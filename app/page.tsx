@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   description: 'Correduría de seguros independiente en A Coruña. Artes escénicas, flotas, comunidades, particulares y empresas.',
 }
 
-const ASEGURADORAS = ["Lloyd's", 'Mapfre', 'Allianz', 'AXA', 'Generali', 'Zurich']
+
 
 const FAQ_ITEMS = [
   {
     q: '¿Tengo que renovar mi póliza cada año?',
-    a: 'No es necesario. La póliza se renueva automáticamente en su fecha de vencimiento. Si quieres anularla, basta con que nos lo comuniques con un mes de antelación al vencimiento.',
+    a: 'No es necesario. La mayor parte de las pólizas se renuevan automáticamente. Si quieres anularla, basta con que nos lo comuniques con un mes de antelación al vencimiento.',
   },
   {
     q: '¿Cobráis gastos de gestión?',
@@ -22,11 +22,11 @@ const FAQ_ITEMS = [
   },
   {
     q: '¿Cuándo recibiré mi póliza?',
-    a: 'Recibirás tu póliza en formato PDF por correo en aproximadamente 72 horas laborables. Ese documento, junto con el recibo bancario, acredita que estás asegurado y puedes presentarlo en cualquier institución o espacio que te lo solicite.',
+    a: 'Recibirás tu póliza en formato PDF por mail en pocas horas. Ese documento, junto con el recibo bancario, acredita que estás asegurado.',
   },
   {
     q: '¿La póliza de artes escénicas sirve para cualquier compañía?',
-    a: 'Sí. Es una tarifa plana para compañías que facturan hasta 400.000 €/año. Si facturas más, también puedes contratarla: al final del año declaras tu facturación y la aseguradora ajusta el recibo de forma proporcional. Pueden contratarla sociedades limitadas, anónimas, profesionales, grupos aficionados, asociaciones culturales y cooperativas.',
+    a: 'Sí. Pueden contratarla sociedades limitadas, anónimas, personas físicas, grupos aficionados, asociaciones culturales y cooperativas.',
   },
   {
     q: '¿Por qué contratar con una correduría y no directamente?',
@@ -37,21 +37,21 @@ const FAQ_ITEMS = [
 const RAMOS = [
   {
     title: 'Artes escénicas',
-    desc: 'Teatro, danza, circo y música en vivo. Cobertura integral para compañías y producciones.',
+    desc: 'Responsabilidad civil para compañías de teatro, danza y orquestas. Accidentes de artistas y técnicos.',
     img: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80',
     imgAlt: 'Compañía de teatro en escena',
     big: false,
   },
   {
     title: 'Flotas',
-    desc: 'Vehículos de empresa: furgonetas, camiones, turismos y maquinaria industrial.',
+    desc: 'Gestión de seguros de flotas de cualquier dimensión. Seguros de mercancías y responsabilidad civil.',
     img: 'https://images.unsplash.com/photo-1726776230760-ae81dc9d4e55?w=800&q=80',
     imgAlt: 'Vista aérea de camiones de flota en muelles de carga',
     big: false,
   },
   {
     title: 'Comunidades',
-    desc: 'Zonas comunes, responsabilidad civil del edificio y gestión de siniestros sin complicaciones.',
+    desc: 'Seguros integrales para comunidades. Facilitamos el trabajo de administraciones de fincas.',
     img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
     imgAlt: 'Edificio residencial en A Coruña',
     big: false,
@@ -65,7 +65,7 @@ const RAMOS = [
   },
   {
     title: 'Empresas',
-    desc: 'Coberturas a medida para pymes y autónomos: RC, D&O, ciberriesgos y más.',
+    desc: 'Coberturas a medida para pymes y autónomos: multiriesgos, RC, D&O, ciberriesgos y más.',
     img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
     imgAlt: 'Oficina moderna de empresa en A Coruña',
     big: true,
@@ -80,8 +80,8 @@ export default function HomePage() {
 
     {/* ── Aseguradoras ──────────────────────────────────── */}
     <div className="border-y border-brand-line bg-brand-paper-alt">
-      <div className="w-full max-w-[1200px] mx-auto px-7 flex flex-wrap items-center justify-between gap-[30px] py-[22px]">
-        <span className="text-[13px] font-semibold tracking-[0.1em] uppercase text-brand-muted whitespace-nowrap">
+      <div className="w-full max-w-[1200px] mx-auto px-7 flex flex-wrap items-center justify-center gap-[30px] py-[22px]">
+        <span className="text-[13px] font-semibold tracking-[0.1em] uppercase text-brand-muted whitespace-nowrap text-center">
           Solo operamos con aseguradoras de máximo prestigio y solvencia
         </span>
         
