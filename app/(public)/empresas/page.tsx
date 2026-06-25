@@ -42,7 +42,7 @@ export default function EmpresasPage() {
             </h1>
 
             <p className="text-[clamp(17px,1.45vw,20px)] leading-[1.65] text-brand-ink-soft mt-[22px] max-w-[54ch]">
-              Pymes y autónomos. Responsabilidad civil, ciberriesgos, daños materiales y mucho más, adaptado a tu actividad real, no a una tarifa genérica.
+              Coberturas a medida para PYMES y autónomos. Multirriesgos, responsabilidad civil, ciberriesgos, D&O, responsabilidad medioambiental y más.
             </p>
 
             <div className="group inline-block mt-[32px]">

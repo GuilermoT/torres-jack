@@ -46,7 +46,7 @@ export default function ComunidadesPage() {
             </h1>
 
             <p className="text-[clamp(17px,1.45vw,20px)] leading-[1.65] text-brand-ink-soft mt-[22px] max-w-[54ch]">
-              Zonas comunes, fachada, instalaciones y responsabilidad civil del edificio. Ayudamos a presidentes y administradores de fincas a tener todo en orden, con alguien que responde cuando hay un problema real.
+              Seguros integrales para comunidades. Gestionamos contratación y siniestros. Facilitamos el trabajo de administraciones de fincas.
             </p>
 
             <div className="group inline-block mt-[32px]">

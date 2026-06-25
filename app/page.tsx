@@ -82,18 +82,9 @@ export default function HomePage() {
     <div className="border-y border-brand-line bg-brand-paper-alt">
       <div className="w-full max-w-[1200px] mx-auto px-7 flex flex-wrap items-center justify-between gap-[30px] py-[22px]">
         <span className="text-[13px] font-semibold tracking-[0.1em] uppercase text-brand-muted whitespace-nowrap">
-          Aseguradoras de máximo prestigio
+          Solo operamos con aseguradoras de máximo prestigio y solvencia
         </span>
-        <div className="flex flex-wrap items-center gap-[34px]">
-          {ASEGURADORAS.map((name) => (
-            <span
-              key={name}
-              className="font-serif text-[21px] font-semibold text-brand-ink-soft tracking-[-0.01em] opacity-[0.72]"
-            >
-              {name}
-            </span>
-          ))}
-        </div>
+        
       </div>
     </div>
 

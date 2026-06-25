@@ -42,7 +42,7 @@ export default function FlotasPage() {
             </h1>
 
             <p className="text-[clamp(17px,1.45vw,20px)] leading-[1.65] text-brand-ink-soft mt-[22px] max-w-[54ch]">
-              Furgonetas, camiones, turismos o maquinaria industrial. Si tu empresa depende de sus vehículos, te ayudamos a asegurarlos todos bajo una gestión única, sin perder tiempo en papeleo con cada póliza por separado.
+              Gestión de seguros de flotas de cualquier dimensión. Unidades mixtas, camiones rígidos, furgonetas, turismos, maquinaria industrial. Seguros de mercancías y responsabilidad civil.
             </p>
 
             <div className="group inline-block mt-[32px]">

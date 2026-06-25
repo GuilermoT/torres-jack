@@ -90,7 +90,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap gap-x-[30px] gap-y-[22px] mt-[40px]">
           {([
             { value: '+40',       label: 'años asegurando' },
-            { value: 'Titulados', label: 'y colegiados'    },
+            { value: 'Corredores y abogados', label: 'Titulados y colegiados'    },
           ] as const).map(({ value, label }) => (
             <div key={label} className="flex flex-col gap-[2px]">
               <b className="font-serif text-[30px] font-semibold tracking-[-0.02em] text-white">

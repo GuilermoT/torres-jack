@@ -42,13 +42,13 @@ export default function ArtesEscenicasPage() {
 
           <FadeInOnScroll delay={0}>
             <h1 className="font-serif font-medium text-[clamp(38px,5.2vw,70px)] leading-[1.04] tracking-[-0.025em] text-brand-ink max-w-[20ch]">
-              Seguros de artes escénicas, de quien conoce el oficio.
+              Seguros de artes escénicas, de quien conoce tu oficio.
             </h1>
           </FadeInOnScroll>
 
           <FadeInOnScroll delay={0.2}>
             <p className="text-[clamp(17px,1.45vw,20px)] leading-[1.65] text-brand-ink-soft mt-[22px] max-w-[54ch]">
-              Llevamos años asegurando a quienes hacen que la función no pare. Una póliza pensada para la realidad de las compañías: giras, montajes, ensayos, espacios prestados y público en la sala.
+              Responsabilidad civil para compañías de teatro, danza y orquestas. Accidentes de artistas y técnicos. Seguros para productoras.
             </p>
           </FadeInOnScroll>
 
@@ -88,7 +88,7 @@ export default function ArtesEscenicasPage() {
             <div>
               <FadeInOnScroll delay={0}>
                 <h2 className="font-serif font-medium text-[23px] leading-[1.12] tracking-[-0.01em] text-brand-on-dark mb-5">
-                  Qué cubre tu RC de artes escénicas
+                  Coberturas de las pólizas de responsabilidad civil de artes escénicas
                 </h2>
                 <ul className="flex flex-col gap-[18px]">
                   {COBERTURAS_RC.map(({ label, desc, nueva }) => (
