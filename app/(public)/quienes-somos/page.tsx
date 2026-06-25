@@ -81,7 +81,7 @@ export default function QuienesSomosPage() {
             <div className="group inline-block mt-[30px]">
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-2.5 py-[14px] px-[26px] rounded-full font-semibold text-[16px] leading-none bg-brand-ink text-brand-paper border border-transparent transition-[transform,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-black group-hover:-translate-y-0.5"
+                className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[14px] px-[26px] rounded-none font-semibold text-[16px] leading-none bg-brand-ink text-brand-paper border border-transparent transition-[transform] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-black/25 before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full"
               >
                 Hablar con un mediador
               </a>

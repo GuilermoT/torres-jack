@@ -158,7 +158,7 @@ export default function PresupuestoPage() {
   const OPT = ' (opcional)'
 
   const radioBtnCls = (active: boolean) =>
-    'flex-1 py-[10px] px-4 rounded-lg border-[1.5px] text-[15px] font-medium text-center cursor-pointer transition-colors duration-200 ' +
+    'flex-1 py-[10px] px-4 rounded-none border-[1.5px] text-[15px] font-medium text-center cursor-pointer transition-colors duration-200 ' +
     (active ? 'border-brand-accent bg-brand-accent-tint text-brand-accent-deep' : 'border-brand-line text-brand-ink-soft hover:border-brand-line-strong')
 
   const SUMAS = [
@@ -544,7 +544,7 @@ export default function PresupuestoPage() {
                           type="button"
                           onClick={() => pick('ramo', id)}
                           className={[
-                            'border-[1.5px] rounded-[14px] p-[18px] flex gap-[14px] items-start text-left w-full',
+                            'border-[1.5px] rounded-none p-[18px] flex gap-[14px] items-start text-left w-full',
                             'transition-[border-color,background-color,transform] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
                             data.ramo === id
                               ? 'border-brand-accent bg-brand-accent-tint'
@@ -757,7 +757,7 @@ export default function PresupuestoPage() {
                   {step < 3 ? (
                     <div className="group">
                       <button type="button" onClick={() => setStep(s => s + 1)}
-                        className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]">
+                        className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-none font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-accent-deep before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full">
                         Continuar
                         <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />
                       </button>
@@ -767,7 +767,7 @@ export default function PresupuestoPage() {
                       type="button"
                       onClick={handleSubmit}
                       disabled={!data.consentimiento || isSubmitting}
-                      className="inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-full font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-accent-deep hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] disabled:opacity-40 disabled:cursor-not-allowed disabled:!translate-y-0 disabled:!shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)]"
+                      className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[14px] px-[28px] rounded-none font-semibold text-[16px] leading-none text-white bg-brand-accent shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] disabled:opacity-40 disabled:cursor-not-allowed disabled:!translate-y-0 disabled:!shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-accent-deep before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] hover:before:w-full"
                     >
                       {isSubmitting ? 'Enviando…' : 'Enviar solicitud'}
                       {!isSubmitting && <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />}

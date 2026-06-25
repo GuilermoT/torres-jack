@@ -17,12 +17,6 @@ export default function HeroSection() {
         sizes="100vw"
       />
 
-      {/* Navy overlay — no animation */}
-      <div className="absolute inset-0 bg-brand-dark-2/55" />
-
-      {/* Left gradient for text legibility — no animation */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 70%)' }} />
-
       {/* Content */}
       <div className="relative w-full max-w-[860px] px-[clamp(28px,6vw,80px)] pt-[clamp(80px,12vw,152px)] pb-[clamp(64px,8vw,112px)]">
 
@@ -70,7 +64,7 @@ export default function HeroSection() {
           <div className="group">
             <a
               href="/presupuesto"
-              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,background-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-brand-accent-deep group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]"
+              className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-none font-semibold text-[17px] leading-none text-white bg-brand-accent border border-transparent whitespace-nowrap shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-accent-deep before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full"
             >
               Calcula tu presupuesto
               <ArrowRight className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
@@ -79,7 +73,7 @@ export default function HeroSection() {
           <div className="group">
             <a
               href="#ramos"
-              className="inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-full font-semibold text-[17px] leading-none text-white bg-transparent border border-white/40 whitespace-nowrap transition-[transform,color,border-color,background-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-white/10 group-hover:border-white/60 group-hover:-translate-y-0.5"
+              className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-none font-semibold text-[17px] leading-none text-white bg-transparent border border-white/40 whitespace-nowrap transition-[transform,color,border-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-white/60 group-hover:-translate-y-0.5 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-white/10 before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full"
             >
               Ver todos los seguros
             </a>
