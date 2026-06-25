@@ -52,7 +52,7 @@ export default function ComunidadesPage() {
             <div className="group inline-block mt-[32px]">
               <a
                 href="#mas-info"
-                className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-none font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-brand-line group-hover:-translate-y-0.5 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-cream before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full"
+                className="relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5 py-[16px] px-[32px] rounded-none font-semibold text-[17px] leading-none text-brand-ink bg-transparent border border-brand-line-strong whitespace-nowrap transition-[transform,color,border-color] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-brand-line group-hover:-translate-y-0.5 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-cream before:transition-[width] before:duration-[700ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full"
               >
                 Saber más
                 <ArrowDown className="w-[18px] h-[18px] shrink-0" strokeWidth={2.2} />
@@ -126,7 +126,7 @@ export default function ComunidadesPage() {
               <div className="group mt-10">
                 <a
                   href="/presupuesto?ramo=comunidad"
-                  className="relative overflow-hidden [isolation:isolate] flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-none font-semibold text-[16px] leading-none text-white bg-brand-accent border border-transparent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)] before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-accent-deep before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:before:w-full"
+                  className="flex items-center justify-center gap-2.5 py-[16px] px-[32px] rounded-none font-semibold text-[16px] leading-none text-white group-hover:text-brand-ink [background-image:linear-gradient(to_right,transparent_50%,oklch(0.50_0.135_256)_50%)] [background-size:200%_100%] [background-position:100%_0%] group-hover:[background-position:0%_0%] border border-brand-accent w-full shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] group-hover:shadow-none group-hover:-translate-y-0.5 [transition:background-position_700ms_ease,color_700ms_ease,box-shadow_700ms_ease,transform_250ms_ease]"
                 >
                   Pide tu presupuesto de comunidad sin compromiso
                   <ArrowRight className="w-[17px] h-[17px] shrink-0" strokeWidth={2.2} />

@@ -142,17 +142,15 @@ export function Navbar() {
             <a
               href="/presupuesto"
               className={cn(
-                'relative overflow-hidden [isolation:isolate] inline-flex items-center gap-2.5',
+                'inline-flex items-center gap-2.5',
                 'py-[14px] px-[26px] rounded-none',
-                'font-semibold text-base text-white bg-brand-accent',
-                'border border-transparent whitespace-nowrap leading-none',
-                'shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)]',
-                'transition-[transform,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
+                'font-semibold text-base text-white group-hover:text-brand-ink',
+                '[background-image:linear-gradient(to_right,transparent_50%,oklch(0.50_0.135_256)_50%)] [background-size:200%_100%] [background-position:100%_0%]',
+                'group-hover:[background-position:0%_0%]',
+                'border border-brand-accent whitespace-nowrap leading-none',
+                'shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] group-hover:shadow-none',
                 'group-hover:-translate-y-0.5',
-                'group-hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]',
-                "before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-accent-deep",
-                'before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)]',
-                'group-hover:before:w-full'
+                '[transition:background-position_700ms_ease,color_700ms_ease,box-shadow_700ms_ease,transform_250ms_ease]',
               )}
             >
               Pide presupuesto
@@ -246,16 +244,14 @@ export function Navbar() {
             onClick={close}
             tabIndex={isMenuOpen ? 0 : -1}
             className={cn(
-              'relative overflow-hidden [isolation:isolate] flex items-center justify-center gap-2.5',
+              'flex items-center justify-center gap-2.5',
               'py-[14px] px-[26px] rounded-none',
-              'font-semibold text-base text-white bg-brand-accent',
-              'border border-transparent leading-none',
-              'shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)]',
-              'transition-[box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-              'hover:shadow-[0_10px_26px_oklch(0.50_0.135_256/0.42)]',
-              "before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-accent-deep",
-              'before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)]',
-              'hover:before:w-full'
+              'font-semibold text-base text-white hover:text-brand-ink',
+              '[background-image:linear-gradient(to_right,transparent_50%,oklch(0.50_0.135_256)_50%)] [background-size:200%_100%] [background-position:100%_0%]',
+              'hover:[background-position:0%_0%]',
+              'border border-brand-accent leading-none',
+              'shadow-[0_6px_18px_oklch(0.50_0.135_256/0.34)] hover:shadow-none',
+              '[transition:background-position_700ms_ease,color_700ms_ease,box-shadow_700ms_ease]',
             )}
           >
             Pide presupuesto

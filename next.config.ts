@@ -9,11 +9,9 @@ import type { NextConfig } from 'next'
 // Supabase en connect-src: el panel del mediador usará el cliente browser.
 // Si se añaden proveedores externos (mapas, analytics…) habrá que ampliar.
 
-const isDev = process.env.NODE_ENV === 'development'
-
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval'`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://images.unsplash.com",
   "font-src 'self'",

@@ -40,7 +40,7 @@ export function CookieBanner() {
       </p>
       <button
         onClick={accept}
-        className="relative overflow-hidden [isolation:isolate] shrink-0 px-5 py-[9px] rounded-none bg-white text-brand-dark text-[13.5px] font-semibold transition-[color] duration-200 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-cream before:transition-[width] before:duration-[400ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] hover:before:w-full"
+        className="relative overflow-hidden [isolation:isolate] shrink-0 px-5 py-[9px] rounded-none bg-white text-brand-dark text-[13.5px] font-semibold transition-[color] duration-200 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-0 before:z-[-1] before:bg-brand-cream before:transition-[width] before:duration-[700ms] before:ease-[cubic-bezier(0.22,1,0.36,1)] hover:before:w-full"
       >
         Aceptar
       </button>
